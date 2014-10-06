@@ -37,7 +37,7 @@ public class BDEMain extends ActionBarActivity
     private ViewPager mViewPager;
     private static final int PAGE_ACTU = 0;
     private static final int PAGE_EVENT = 1;
-    private static int currentPage = PAGE_ACTU;
+    private int currentPage = PAGE_ACTU;
     private ArrayList<Fragment> pages;
     private ViewPagerAdapter mViewPagerAdapter;
     private Spinner spinner;
@@ -96,19 +96,12 @@ public class BDEMain extends ActionBarActivity
 
             mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 @Override
-                public void onPageScrolled(int i, float v, int i2) {
-//                    Log.v("onPageScrolled", "i="+i+", v="+v*100+", i2="+i2);
-                }
+                public void onPageScrolled(int i, float v, int i2) {}
 
                 @Override
-                public void onPageSelected(int i) {
-                    if(i == PAGE_EVENT){
-                        currentPage = PAGE_EVENT;
-                        getSupportActionBar().setDisplayShowCustomEnabled(true);
-                    }else{
-                        currentPage = PAGE_ACTU;
-                        getSupportActionBar().setDisplayShowCustomEnabled(false);
-                    }
+                public void onPageSelected(int index) {
+                    currentPage = index;
+                    getSupportActionBar().setDisplayShowCustomEnabled(currentPage == PAGE_EVENT);
                 }
 
                 @Override
@@ -126,12 +119,9 @@ public class BDEMain extends ActionBarActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
-        if(currentPage == PAGE_EVENT){
-            actionBar.setDisplayShowCustomEnabled(true);
-        }
+        actionBar.setDisplayShowCustomEnabled(currentPage == PAGE_EVENT);
         actionBar.setTitle(mTitle);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
