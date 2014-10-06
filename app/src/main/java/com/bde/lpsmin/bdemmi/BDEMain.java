@@ -37,6 +37,7 @@ public class BDEMain extends ActionBarActivity
     private ViewPager mViewPager;
     private static final int PAGE_ACTU = 0;
     private static final int PAGE_EVENT = 1;
+    private static int currentPage = PAGE_ACTU;
     private ArrayList<Fragment> pages;
     private ViewPagerAdapter mViewPagerAdapter;
     private Spinner spinner;
@@ -102,8 +103,10 @@ public class BDEMain extends ActionBarActivity
                 @Override
                 public void onPageSelected(int i) {
                     if(i == PAGE_EVENT){
+                        currentPage = PAGE_EVENT;
                         getSupportActionBar().setDisplayShowCustomEnabled(true);
                     }else{
+                        currentPage = PAGE_ACTU;
                         getSupportActionBar().setDisplayShowCustomEnabled(false);
                     }
                 }
@@ -123,6 +126,9 @@ public class BDEMain extends ActionBarActivity
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
+        if(currentPage == PAGE_EVENT){
+            actionBar.setDisplayShowCustomEnabled(true);
+        }
         actionBar.setTitle(mTitle);
     }
 
