@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="defaultColor">#ffd23535</color>
+    <color name="defaultColorDarken">#ffa72b2b</color>
+    <color name="actionbar_text">#ff000000</color>
+    <color name="actionbar">@color/defaultColor</color>
+    <color name="navigation_drawer">@color/defaultColorDarken</color>
+    <color name="navigation_drawer_separator">#ffffffff</color>
+    <color name="navigation_drawer_item_pressed">@color/defaultColor</color>
+    <color name="navigation_drawer_item">@android:color/transparent</color>
+    <color name="navigation_drawer_text">#ffffffff</color>
+    <color name="main_bg">#ffd7d7d7</color>
+    <color name="item_text_color">#ffffffff</color>
+    <color name="item_title_color">#ff000000</color>
+    <color name="item_date_color">#ff000000</color>
+    <color name="item_place_color">#ff000000</color>
+</resources>
