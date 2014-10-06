@@ -256,9 +256,9 @@ public class NavigationDrawerFragment extends Fragment {
     public static Intent getOpenInstagramIntent(Context context) {
         try {
             context.getPackageManager().getPackageInfo("com.instagram.android", 0);
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/"+Utils.instagram_profil));
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/"+Utils.instagram_profile));
         } catch (Exception e) {
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.instagram.com/"+Utils.instagram_profil));
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.instagram.com/"+Utils.instagram_profile));
         }
     }
 

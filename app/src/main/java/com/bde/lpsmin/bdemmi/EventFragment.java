@@ -15,17 +15,18 @@ public class EventFragment extends ActuFragment {
     }
 
     @Override
-    protected void loadItems(){
+    public void loadItems(int i){
+        currentEvent = i;
         items.clear();
         adapter.notifyDataSetChanged();
-        GetEventTask task = new GetEventTask(getActivity());
+        GetEventTask task = new GetEventTask(getActivity(), currentEvent);
         task.execTask();
     }
 
     protected class GetEventTask extends GetActuTask {
 
-        public GetEventTask(FragmentActivity activity) {
-            super(activity);
+        public GetEventTask(FragmentActivity activity, int histo) {
+            super(activity, histo);
         }
 
         @Override

@@ -33,6 +33,7 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     private SwipeRefreshLayout swipeLayout;
     protected ListViewAdapter adapter;
     protected ArrayList<Actu> items;
+    protected int currentEvent = 0; //0 pour event futur, 1 pour les anciens.
 
     public ActuFragment(){}
 
@@ -65,31 +66,34 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                         R.id.expandable
                 )
         );
-        loadItems();
+        loadItems(currentEvent);
 
 
         return rootView;
     }
 
-    protected void loadItems(){
+    public void loadItems(int i){
+        currentEvent = i;
         items.clear();
         adapter.notifyDataSetChanged();
-        GetActuTask task = new GetActuTask(getActivity());
+        GetActuTask task = new GetActuTask(getActivity(), currentEvent);
         task.execTask();
     }
 
     @Override
     public void onRefresh() {
-        loadItems();
+        loadItems(currentEvent);
     }
 
     protected class GetActuTask extends AsyncTask<Void, Actu, Boolean>{
 
         protected WeakReference<FragmentActivity> act = null;
         private Context context = null;
+        private int historique;
 
-        public GetActuTask(FragmentActivity activity) {
+        public GetActuTask(FragmentActivity activity, int historique) {
             link(activity);
+            this.historique = historique;
         }
 
         public void link (FragmentActivity pActivity) {

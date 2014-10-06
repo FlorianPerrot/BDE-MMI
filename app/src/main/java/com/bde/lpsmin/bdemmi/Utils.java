@@ -15,7 +15,10 @@ public class Utils {
      */
     public final static String site_web = "http://www.google.com";
 
-    public static final String instagram_profil = "icijapon";
+    /**
+     * instagram profile.
+     */
+    public static final String instagram_profile = "icijapon";
 
     /**
      * use to format date with right database date string

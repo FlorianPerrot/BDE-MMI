@@ -75,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/navigation_drawer_item"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:layout_toLeftOf="@+id/menu_mail"
                 android:src="@drawable/facebook"/>
             <ImageButton
@@ -83,7 +83,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/navigation_drawer_item"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/mail"/>
             <ImageButton
@@ -92,16 +92,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/navigation_drawer_item"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:src="@drawable/firefox"/>
             <ImageButton
                 android:id="@+id/menu_instagram"
                 android:layout_below="@id/menu_facebook"
                 android:layout_alignLeft="@id/menu_facebook"
+                android:layout_alignStart="@id/menu_facebook"
+                android:layout_alignRight="@id/menu_facebook"
+                android:layout_alignEnd="@id/menu_facebook"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/navigation_drawer_item"
-                android:padding="20dp"
+                android:padding="10dp"
                 android:src="@drawable/instagram"/>
             </RelativeLayout>
         <TextView

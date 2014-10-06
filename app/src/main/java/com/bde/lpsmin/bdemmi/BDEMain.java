@@ -1,16 +1,21 @@
 package com.bde.lpsmin.bdemmi;
 
+import android.os.Build;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -30,6 +35,8 @@ public class BDEMain extends ActionBarActivity
      */
     private CharSequence mTitle;
     private ViewPager mViewPager;
+    private static final int PAGE_ACTU = 0;
+    private static final int PAGE_EVENT = 1;
     private ArrayList<Fragment> pages;
     private ViewPagerAdapter mViewPagerAdapter;
     private Spinner spinner;
@@ -58,8 +65,52 @@ public class BDEMain extends ActionBarActivity
         // custom spinner action view
         final View view = getLayoutInflater().inflate(R.layout.spinner_event_action_view, null);
         if(view != null){
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getApplicationContext(),
+                    R.layout.event_spinner, getResources().getStringArray(R.array.event_spinner));
+            adapter.setDropDownViewResource(R.layout.event_spinner_item);
             spinner = (Spinner) view.findViewById(R.id.spinner);
-            spinner.setAdapter(new EventSpinnerAdapter());
+            spinner.setAdapter(adapter);
+            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                public boolean firstTime = true;
+
+                @Override
+                public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                    if(!firstTime) {
+                        ((EventFragment) pages.get(PAGE_EVENT)).loadItems(i);
+                    }
+                    firstTime = false;
+                }
+
+                @Override
+                public void onNothingSelected(AdapterView<?> adapterView) {}
+            });
+
+            int gravity;
+            if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ) {
+                gravity = Gravity.END;
+            }else{
+                gravity = Gravity.RIGHT;
+            }
+            getSupportActionBar().setCustomView(view, new ActionBar.LayoutParams(gravity));
+
+            mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+                @Override
+                public void onPageScrolled(int i, float v, int i2) {
+//                    Log.v("onPageScrolled", "i="+i+", v="+v*100+", i2="+i2);
+                }
+
+                @Override
+                public void onPageSelected(int i) {
+                    if(i == PAGE_EVENT){
+                        getSupportActionBar().setDisplayShowCustomEnabled(true);
+                    }else{
+                        getSupportActionBar().setDisplayShowCustomEnabled(false);
+                    }
+                }
+
+                @Override
+                public void onPageScrollStateChanged(int i) {}
+            });
         }
     }
 
@@ -94,49 +145,10 @@ public class BDEMain extends ActionBarActivity
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        int id = item.getItemId();
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
         return super.onOptionsItemSelected(item);
     }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-        /**
-         * The fragment argument representing the section number for this
-         * fragment.
-         */
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        /**
-         * Returns a new instance of this fragment for the given section
-         * number.
-         */
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_bdemain, container, false);
-            TextView textView = (TextView) rootView.findViewById(R.id.text_view);
-            int arg = getArguments().getInt(ARG_SECTION_NUMBER);
-            textView.setText(""+arg);
-
-            return rootView;
-        }
-
-    }
-
 }
