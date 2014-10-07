@@ -14,6 +14,9 @@ import com.koushikdutta.ion.Ion;
  */
 public class Event extends Actu {
 
+    public static final boolean HISTORIQUE = false;
+    public static final boolean PROCHAINEMENT = true;
+	
     private String lieu;
 
     public Event(String title, String content, String imgUri, String lieu, String date) {
