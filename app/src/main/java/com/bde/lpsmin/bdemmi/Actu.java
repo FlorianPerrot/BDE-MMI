@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
+import android.util.Log;
+import android.widget.Toast;
 
 import com.google.gson.JsonArray;
 import com.koushikdutta.async.future.Future;
@@ -69,27 +71,4 @@ public class Actu {
         return new SimpleDateFormat(Utils.DATE_FORMAT_DISPLAY).format(date);
     }
     
-    static public ArrayList<Actu> getActuListFromJson(Context context) {
-    	
-    	final ArrayList<Actu> actuArray = new ArrayList<Actu>();
-    	
-		Ion.with(context)
-		.load(Utils.rest_get_actu)
-		.asJsonArray()
-		.setCallback(new FutureCallback<JsonArray>(){
-			public void onCompleted(Exception e, JsonArray result) {
-		    	
-				for(int i=0; i<result.size() ;i++){
-					actuArray.add(new Actu(
-							result.get(i).getAsJsonObject().get("title").getAsString(),
-							result.get(i).getAsJsonObject().get("conent").getAsString(),
-							result.get(i).getAsJsonObject().get("image_url").getAsString(),
-							result.get(i).getAsJsonObject().get("date").getAsString()
-					));
-				}
-			}
-		});
-		
-		return actuArray;
-    }
 }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="defaultColor">#ffd23535</color>
-    <color name="defaultColorDarken">#ffa72b2b</color>
+    <color name="defaultColor">#e93e3d</color>
+    <color name="defaultColorDarken">#c23432</color>
+    <color name="black">#000</color>
+    <color name="grey">#ff5d1a19</color>
     <color name="actionbar_text">#ff000000</color>
     <color name="actionbar">@color/defaultColor</color>
     <color name="navigation_drawer">@color/defaultColorDarken</color>

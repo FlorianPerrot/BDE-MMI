@@ -20,8 +20,8 @@
         revision="20.0.0"
         sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-c77f13e826712622eab0a2666901ae5c3ed7cadd.jar"
-        jar="/home/ubuntu/android-studio/sdk/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
+        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-57752ecfe4e1c4515cb192d210dde0d0b25d62e7.jar"
+        jar="/home/ubuntu/sdk_android/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="9d9013e9ff35fc3756411e62873c363c70c638fa"/>

@@ -5,9 +5,9 @@ package com.bde.lpsmin.bdemmi;
  */
 public class Utils {
 
-    public static final String rest_get_actu = "http://localhost/bde/json.php?json=2";
-    public static final String rest_get_event = "http://localhost/bde/json.php?json=1";
-    public static final String rest_get_event_histo = "http://localhost/bde/json.php?json=0";
+    public static final String rest_get_actu = "http://bde-mmi.alwaysdata.net/json/actu/all";
+    public static final String rest_get_event = "http://bde-mmi.alwaysdata.net/json/event/prochainement";
+    public static final String rest_get_event_histo = "http://bde-mmi.alwaysdata.net/json/event/historique";
 
     public final static String mail = "bdemmi.grenoble@gmail.com";
     /**
@@ -28,7 +28,7 @@ public class Utils {
     /**
      * use to format date with right database date string
      */
-    public final static String DATE_FORMAT = "yyyy-MM-dd HH:mm";
+    public final static String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
 
     /**
      * use to display date on textView

@@ -1,5 +1,6 @@
 package com.bde.lpsmin.bdemmi;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -11,10 +12,12 @@ import java.util.ArrayList;
  */
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
+    private final Context mContext;
     private ArrayList<ActuFragment> pages;
-    public ViewPagerAdapter(FragmentManager fm, ArrayList<ActuFragment> pages) {
+    public ViewPagerAdapter(Context context, FragmentManager fm, ArrayList<ActuFragment> pages) {
         super(fm);
         this.pages = pages;
+        this.mContext = context;
     }
     @Override
     public Fragment getItem(int position) {
@@ -27,5 +30,19 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public int getCount() {
         return pages.size();
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        CharSequence returnValue = null;
+        switch (position) {
+            case 0:
+                returnValue = mContext.getResources().getString(R.string.navigation_drawer_actu);
+                break;
+            case 1:
+                returnValue = mContext.getResources().getString(R.string.navigation_drawer_event);
+                break;
+        }
+        return returnValue;
     }
 }

@@ -13,6 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.google.gson.JsonArray;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 import com.tjerkw.slideexpandable.library.ActionSlideExpandableListView;
 import com.tjerkw.slideexpandable.library.SlideExpandableListAdapter;
 
@@ -27,7 +30,7 @@ import java.util.Date;
 public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
     private ActionSlideExpandableListView listView;
-    private SwipeRefreshLayout swipeLayout;
+    protected SwipeRefreshLayout swipeLayout;
     protected ListViewAdapter adapter;
     protected ArrayList<Actu> items;
     protected int currentEvent = 0; //0 pour event futur, 1 pour les anciens.
@@ -45,6 +48,7 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         swipeLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_container);
         swipeLayout.setOnRefreshListener(this);
+        swipeLayout.setColorSchemeResources(R.color.defaultColor, R.color.defaultColorDarken, R.color.grey, R.color.black);
 
         items = new ArrayList<Actu>();
 
@@ -112,10 +116,29 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         @Override
         protected Boolean doInBackground(Void... voids) {
             if(act.get() != null) {
-                ArrayList<Actu> actuList = Actu.getActuListFromJson(context);
-                for (Actu anActuList : actuList) {
-                    publishProgress(anActuList);
-                }
+                Ion.with(context)
+                .load(Utils.rest_get_actu)
+                .asJsonArray()
+                .setCallback(new FutureCallback<JsonArray>(){
+                    public void onCompleted(Exception e, JsonArray result) {
+                        try {
+                            if (result != null) {
+                                for (int i = 0; i < result.size(); i++) {
+                                    publishProgress(new Actu(
+                                            result.get(i).getAsJsonObject().get("title").getAsString(),
+                                            result.get(i).getAsJsonObject().get("contenu").getAsString(),
+                                            result.get(i).getAsJsonObject().get("image").getAsString(),
+                                            result.get(i).getAsJsonObject().get("date").getAsString()
+                                    ));
+                                }
+                            } else {
+                                Toast.makeText(context, "Une erreur est survenue :)", Toast.LENGTH_SHORT).show();
+                                e.printStackTrace();
+                            }
+                            swipeLayout.setRefreshing(false);
+                        }catch (Exception ex){ex.printStackTrace();}
+                    }
+                });
                 return true;
             }
             return false;
@@ -132,7 +155,6 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         @Override
         protected void onPostExecute (Boolean result) {
             if (act.get() != null) {
-                swipeLayout.setRefreshing(false);
                 if(!result)
                     Toast.makeText(context, "Oups petit problème", Toast.LENGTH_LONG).show();
             }

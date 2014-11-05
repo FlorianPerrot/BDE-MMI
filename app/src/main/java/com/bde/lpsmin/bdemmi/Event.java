@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
+import android.widget.Toast;
 
 import com.google.gson.JsonArray;
 import com.koushikdutta.async.future.FutureCallback;
@@ -32,49 +33,4 @@ public class Event extends Actu {
         this.lieu = lieu;
     }
 
-    static public ArrayList<Event> getActuListFromJson(boolean typeDEvent,Context context) {
-    	
-    	final ArrayList<Event> eventArray = new ArrayList<Event>();
-    	
-    	if(typeDEvent){
-			Ion.with(context)
-			.load(Utils.rest_get_event)
-			.asJsonArray()
-			.setCallback(new FutureCallback<JsonArray>(){
-				public void onCompleted(Exception e, JsonArray result) {
-			    	
-					for(int i=0; i<result.size() ;i++){
-						eventArray.add(new Event(
-								result.get(i).getAsJsonObject().get("title").getAsString(),
-								result.get(i).getAsJsonObject().get("conent").getAsString(),
-								result.get(i).getAsJsonObject().get("image_url").getAsString(),
-								result.get(i).getAsJsonObject().get("lieu").getAsString(),
-								result.get(i).getAsJsonObject().get("date").getAsString()
-						));
-					}
-				}
-			});
-    	}
-    	else{
-			Ion.with(context)
-			.load(Utils.rest_get_event_histo)
-			.asJsonArray()
-			.setCallback(new FutureCallback<JsonArray>(){
-				public void onCompleted(Exception e, JsonArray result) {
-			    	
-					for(int i=0; i<result.size() ;i++){
-						eventArray.add(new Event(
-								result.get(i).getAsJsonObject().get("title").getAsString(),
-								result.get(i).getAsJsonObject().get("conent").getAsString(),
-								result.get(i).getAsJsonObject().get("image_url").getAsString(),
-								result.get(i).getAsJsonObject().get("lieu").getAsString(),
-								result.get(i).getAsJsonObject().get("date").getAsString()
-						));
-					}
-				}
-			});  		
-    	}
-		
-		return eventArray;
-    }
 }
