@@ -8,12 +8,13 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.support.v4.widget.DrawerLayout;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -35,10 +36,10 @@ public class BDEMain extends ActionBarActivity
      */
     private CharSequence mTitle;
     private ViewPager mViewPager;
-    private static final int PAGE_ACTU = 0;
+    private static final int PAGE_ACTU = 0;// attention a changer les add de pages si la valeur change
     private static final int PAGE_EVENT = 1;
     private int currentPage = PAGE_ACTU;
-    private ArrayList<Fragment> pages;
+    private ArrayList<ActuFragment> pages;
     private ViewPagerAdapter mViewPagerAdapter;
     private Spinner spinner;
 
@@ -56,12 +57,35 @@ public class BDEMain extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        pages = new ArrayList<Fragment>();
+        pages = new ArrayList<ActuFragment>();
         pages.add(ActuFragment.newInstance());
         pages.add(EventFragment.newInstance());
         mViewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager(), pages);
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mViewPagerAdapter);
+
+        final TextView tab_actu = (TextView) findViewById(R.id.tab_actu);
+        tab_actu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewPager.setCurrentItem(PAGE_ACTU, true);
+            }
+        });
+
+        final TextView tab_event = (TextView) findViewById(R.id.tab_event);
+        tab_event.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mViewPager.setCurrentItem(PAGE_EVENT, true);
+            }
+        });
+
+        final float scale = getResources().getDisplayMetrics().density;
+        final int defaultPadding = (int) (10*scale + 0.5f);
+        final int finalPadding = (int) (100*scale + 0.5f);
+
+        tab_actu.setPadding(finalPadding, defaultPadding, defaultPadding, defaultPadding);
+        tab_event.setPadding(defaultPadding, defaultPadding, defaultPadding, defaultPadding);
 
         // custom spinner action view
         final View view = getLayoutInflater().inflate(R.layout.spinner_event_action_view, null);
@@ -72,12 +96,12 @@ public class BDEMain extends ActionBarActivity
             spinner = (Spinner) view.findViewById(R.id.spinner);
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                public boolean firstTime = true;
+                private boolean firstTime = true;
 
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     if(!firstTime) {
-                        ((EventFragment) pages.get(PAGE_EVENT)).loadItems(i);
+                        pages.get(PAGE_EVENT).loadItems(i);
                     }
                     firstTime = false;
                 }
@@ -96,12 +120,38 @@ public class BDEMain extends ActionBarActivity
 
             mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
                 @Override
-                public void onPageScrolled(int i, float v, int i2) {}
+                public void onPageScrolled(int i, float v, int i2) {
+                    int padding = (int)(v*100*scale + 0.5f);
+                    if(i == PAGE_ACTU){
+                        if(v != 0.0){
+                            tab_actu.setPadding(finalPadding - padding, defaultPadding, defaultPadding, defaultPadding);
+                            tab_event.setPadding(defaultPadding, defaultPadding, padding, defaultPadding);
+                        }else{
+                            tab_actu.setPadding(finalPadding, defaultPadding, defaultPadding, defaultPadding);
+                            tab_event.setPadding(defaultPadding, defaultPadding, defaultPadding, defaultPadding);
+                        }
+                    }else{
+                        if(v != 0.0){
+                            tab_actu.setPadding(padding, defaultPadding, defaultPadding, defaultPadding);
+                            tab_event.setPadding(defaultPadding, defaultPadding, finalPadding - padding, defaultPadding);
+                        }else{
+                            tab_actu.setPadding(defaultPadding, defaultPadding, defaultPadding, defaultPadding);
+                            tab_event.setPadding(defaultPadding, defaultPadding, finalPadding, defaultPadding);
+                        }
+                    }
+                }
 
                 @Override
                 public void onPageSelected(int index) {
                     currentPage = index;
                     getSupportActionBar().setDisplayShowCustomEnabled(currentPage == PAGE_EVENT);
+                    if(index == PAGE_ACTU){
+                        tab_actu.setPadding(finalPadding, defaultPadding, defaultPadding, defaultPadding);
+                        tab_event.setPadding(defaultPadding, defaultPadding, defaultPadding, defaultPadding);
+                    }else{
+                        tab_actu.setPadding(defaultPadding, defaultPadding, defaultPadding, defaultPadding);
+                        tab_event.setPadding(defaultPadding, defaultPadding, finalPadding, defaultPadding);
+                    }
                 }
 
                 @Override

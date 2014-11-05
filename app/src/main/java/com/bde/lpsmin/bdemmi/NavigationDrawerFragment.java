@@ -155,6 +155,7 @@ public class NavigationDrawerFragment extends Fragment {
                 }catch (Exception e){}
             }
         });
+
         ImageButton menu_mail = (ImageButton) getActivity().findViewById(R.id.menu_mail);
         menu_mail.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,6 +168,7 @@ public class NavigationDrawerFragment extends Fragment {
                 }catch (Exception e){}
             }
         });
+
         ImageButton menu_firefox = (ImageButton) getActivity().findViewById(R.id.menu_firefox);
         menu_firefox.setOnClickListener(new View.OnClickListener() {
             @Override

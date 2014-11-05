@@ -17,7 +17,6 @@ import com.tjerkw.slideexpandable.library.ActionSlideExpandableListView;
 import com.tjerkw.slideexpandable.library.SlideExpandableListAdapter;
 
 import java.lang.ref.WeakReference;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,8 +25,6 @@ import java.util.Date;
  * Created by lheido on 25/09/14.
  */
 public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
-
-    public final static String TAG = "Actu";
 
     private ActionSlideExpandableListView listView;
     private SwipeRefreshLayout swipeLayout;
@@ -88,8 +85,8 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     protected class GetActuTask extends AsyncTask<Void, Actu, Boolean>{
 
         protected WeakReference<FragmentActivity> act = null;
-        private Context context = null;
-        private int historique;
+        protected Context context = null;
+        protected int historique;
 
         public GetActuTask(FragmentActivity activity, int historique) {
             link(activity);
@@ -108,16 +105,16 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
             }
         }
 
-        public Actu create(String title, String description, String imgUri, String place, Date date){
+        public Actu create(String title, String description, String imgUri, String place, String date){
             return new Actu("Actu "+title, description, imgUri, date);
         }
 
         @Override
         protected Boolean doInBackground(Void... voids) {
             if(act.get() != null) {
-                for (int i = 0; i < 42; i++) {
-                    Calendar c = Calendar.getInstance();
-                    publishProgress(create("" + i, "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fringilla risus eget felis laoreet iaculis. Aliquam eget neque cursus, posuere mi a, tincidunt nulla. In gravida elit quis urna volutpat", null, null, c.getTime()));
+                ArrayList<Actu> actuList = Actu.getActuListFromJson(context);
+                for (Actu anActuList : actuList) {
+                    publishProgress(anActuList);
                 }
                 return true;
             }

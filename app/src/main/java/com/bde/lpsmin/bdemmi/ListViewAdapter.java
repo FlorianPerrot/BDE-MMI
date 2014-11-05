@@ -38,7 +38,7 @@ public class ListViewAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int i) {
+    public Actu getItem(int i) {
         return this.items.get(i);
     }
 
@@ -49,7 +49,7 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int r, View convertView, ViewGroup parent) {
-        Actu item = (Actu) this.getItem(r);
+        Actu item = this.getItem(r);
         ViewHolder holder;
         if(convertView == null){
             holder = new ViewHolder();
@@ -65,8 +65,8 @@ public class ListViewAdapter extends BaseAdapter {
 
         holder.title.setText(item.getTitle());
         if(item instanceof Event){
-//            final String lieu = ((Event) item).getLieu();
-            final String lieu = "Parc Paul Mistral Grenoble";
+            final String lieu = ((Event) item).getLieu();
+//            final String lieu = "Parc Paul Mistral Grenoble";
             holder.lieu.setText(lieu);
             if(lieu != null) {
                 holder.lieu.setOnClickListener(new View.OnClickListener() {

@@ -4,6 +4,11 @@ package com.bde.lpsmin.bdemmi;
  * Created by lheido on 01/10/14.
  */
 public class Utils {
+
+    public static final String rest_get_actu = "http://localhost/bde/json.php?json=2";
+    public static final String rest_get_event = "http://localhost/bde/json.php?json=1";
+    public static final String rest_get_event_histo = "http://localhost/bde/json.php?json=0";
+
     public final static String mail = "bdemmi.grenoble@gmail.com";
     /**
      * get fb_id with image or other way.

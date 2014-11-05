@@ -11,8 +11,8 @@ import java.util.ArrayList;
  */
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
-    private ArrayList<Fragment> pages;
-    public ViewPagerAdapter(FragmentManager fm, ArrayList<Fragment> pages) {
+    private ArrayList<ActuFragment> pages;
+    public ViewPagerAdapter(FragmentManager fm, ArrayList<ActuFragment> pages) {
         super(fm);
         this.pages = pages;
     }

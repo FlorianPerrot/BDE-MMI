@@ -10,6 +10,9 @@
     <color name="navigation_drawer_item">@android:color/transparent</color>
     <color name="navigation_drawer_text">#ffffffff</color>
     <color name="main_bg">#ffd7d7d7</color>
+    <color name="tab_item">@color/main_bg</color>
+    <color name="tab_item_pressed">#ffffff</color>
+    <color name="tab_item_text">@color/defaultColor</color>
     <color name="item_text_color">#ffffffff</color>
     <color name="item_title_color">#ff000000</color>
     <color name="item_date_color">#ff000000</color>

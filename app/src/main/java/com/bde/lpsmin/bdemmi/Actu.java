@@ -2,6 +2,7 @@ package com.bde.lpsmin.bdemmi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.Context;
@@ -73,7 +74,7 @@ public class Actu {
     	final ArrayList<Actu> actuArray = new ArrayList<Actu>();
     	
 		Ion.with(context)
-		.load("http://localhost/bde/json.php?json=2")
+		.load(Utils.rest_get_actu)
 		.asJsonArray()
 		.setCallback(new FutureCallback<JsonArray>(){
 			public void onCompleted(Exception e, JsonArray result) {

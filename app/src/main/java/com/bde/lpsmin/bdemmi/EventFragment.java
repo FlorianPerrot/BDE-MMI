@@ -3,6 +3,7 @@ package com.bde.lpsmin.bdemmi;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -30,8 +31,20 @@ public class EventFragment extends ActuFragment {
         }
 
         @Override
-        public Event create(String title, String description, String imgUri, String place, Date date){
+        public Event create(String title, String description, String imgUri, String place, String date){
             return new Event("Event "+title, description, imgUri, place, date);
+        }
+
+        @Override
+        protected Boolean doInBackground(Void... voids) {
+            if(act.get() != null) {
+                ArrayList<Event> actuList = Event.getActuListFromJson((historique == 0), context);
+                for (Event anActuList : actuList) {
+                    publishProgress(anActuList);
+                }
+                return true;
+            }
+            return false;
         }
 
     }
