@@ -125,18 +125,18 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                             if (result != null) {
                                 for (int i = 0; i < result.size(); i++) {
                                     publishProgress(new Actu(
-                                            result.get(i).getAsJsonObject().get("title").getAsString(),
-                                            result.get(i).getAsJsonObject().get("contenu").getAsString(),
-                                            result.get(i).getAsJsonObject().get("image").getAsString(),
-                                            result.get(i).getAsJsonObject().get("date").getAsString()
+                                            result.get(i).getAsJsonObject().get(Utils.JSON_TITLE).getAsString(),
+                                            result.get(i).getAsJsonObject().get(Utils.JSON_CONTENT).getAsString(),
+                                            result.get(i).getAsJsonObject().get(Utils.JSON_IMAGE).getAsString(),
+                                            result.get(i).getAsJsonObject().get(Utils.JSON_DATE).getAsString()
                                     ));
                                 }
                             } else {
                                 Toast.makeText(context, "Une erreur est survenue :)", Toast.LENGTH_SHORT).show();
                                 e.printStackTrace();
                             }
-                            swipeLayout.setRefreshing(false);
                         }catch (Exception ex){ex.printStackTrace();}
+                        swipeLayout.setRefreshing(false);
                     }
                 });
                 return true;

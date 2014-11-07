@@ -28,10 +28,16 @@ public class Utils {
     /**
      * use to format date with right database date string
      */
-    public final static String DATE_FORMAT = "dd/MM/yyyy HH:mm:ss";
+    public final static String DATE_FORMAT = "dd/MM/yyyy HH:mm";
 
     /**
      * use to display date on textView
      */
     public static final String DATE_FORMAT_DISPLAY = "EEEE dd MMM HH:mm";
+
+    public static final String JSON_TITLE = "titre";
+    public static final String JSON_CONTENT = "contenu";
+    public static final String JSON_IMAGE = "image";
+    public static final String JSON_PLACE = "lieu";
+    public static final String JSON_DATE = "date";
 }

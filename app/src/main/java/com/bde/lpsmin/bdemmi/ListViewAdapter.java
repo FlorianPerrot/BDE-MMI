@@ -68,7 +68,7 @@ public class ListViewAdapter extends BaseAdapter {
             final String lieu = ((Event) item).getLieu();
 //            final String lieu = "Parc Paul Mistral Grenoble";
             holder.lieu.setText(lieu);
-            if(lieu != null) {
+            if(lieu != null && !lieu.equals("")) {
                 holder.lieu.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -88,10 +88,13 @@ public class ListViewAdapter extends BaseAdapter {
         holder.date.setText(item.getDateFormated());
 
         holder.description.setText(item.getContent());
-
-        if(item.getImgUri() != null && !item.getImgUri().equals("")){
-            Picasso.with(context).load(item.getImgUri()).fit().centerCrop().into(holder.image);
-        }
+        try {
+            if (item.getImgUri() != null && !item.getImgUri().equals("")) {
+                Picasso.with(context).load(item.getImgUri()).fit().centerCrop().into(holder.image);
+            }else {
+                Picasso.with(context).load(R.drawable.img_placeholder).fit().centerCrop().into(holder.image);
+            }
+        }catch (Exception e){e.printStackTrace();}
 
         return convertView;
     }

@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 android:textColor="@color/navigation_drawer_text"
-                android:textSize="12sp"
+                android:textSize="13sp"
                 android:background="@color/actionbar"/>
             </android.support.v4.view.ViewPager>
 

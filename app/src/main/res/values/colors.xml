@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="defaultColor">#e93e3d</color>
-    <color name="defaultColorDarken">#c23432</color>
+    <!--<color name="defaultColor">#e93e3d</color>-->
+    <!--<color name="defaultColorDarken">#c23432</color>-->
+    <color name="defaultColor">#3A4A60</color>
+    <color name="defaultColorDarken">#213141</color>
     <color name="black">#000</color>
     <color name="grey">#ff5d1a19</color>
-    <color name="actionbar_text">#ff000000</color>
+    <color name="actionbar_text">#ffffffff</color>
     <color name="actionbar">@color/defaultColor</color>
     <color name="navigation_drawer">@color/defaultColorDarken</color>
     <color name="navigation_drawer_separator">#ffffffff</color>
@@ -15,8 +17,10 @@
     <color name="tab_item">@color/main_bg</color>
     <color name="tab_item_pressed">#ffffff</color>
     <color name="tab_item_text">@color/defaultColor</color>
+    <color name="item_layout_background">@color/defaultColor</color>
+    <color name="item_background">#63000000</color>
     <color name="item_text_color">#ffffffff</color>
-    <color name="item_title_color">#ff000000</color>
-    <color name="item_date_color">#ff000000</color>
-    <color name="item_place_color">#ff000000</color>
+    <color name="item_title_color">@color/item_text_color</color>
+    <color name="item_date_color">@color/item_text_color</color>
+    <color name="item_place_color">@color/item_text_color</color>
 </resources>

@@ -14,11 +14,23 @@
         revision="20.0.0"
         sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce"/>
     <item
+        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/ion-1.4.0-d09f9bb8d61cb7514b0cf1a905cf7d189324397f.jar"
+        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.ion/ion/1.4.0/83d42eb62aee89512b4c06a37cfdbeb6536f80/ion-1.4.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="0083d42eb62aee89512b4c06a37cfdbeb6536f80"/>
+    <item
         dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-1a1c3e6b58f4890adc146a6ec4e4331079baae67.jar"
         jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="8694693636ab36910c8100ce527c258ff3ebece0"/>
+    <item
+        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/androidasync-1.4.0-e763ba077f3d10a2944eefa2e7764bb52034655d.jar"
+        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.async/androidasync/1.4.0/4f175f7412911432c6e401501769133ee1a17c72/androidasync-1.4.0.jar"
+        jumboMode="false"
+        revision="20.0.0"
+        sha1="4f175f7412911432c6e401501769133ee1a17c72"/>
     <item
         dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/support-annotations-20.0.0-57752ecfe4e1c4515cb192d210dde0d0b25d62e7.jar"
         jar="/home/ubuntu/sdk_android/extras/android/m2repository/com/android/support/support-annotations/20.0.0/support-annotations-20.0.0.jar"
@@ -43,17 +55,5 @@
         jumboMode="false"
         revision="20.0.0"
         sha1="e40b3078e3fbd353c9f44da8df25a8fc0078209d"/>
-    <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/ion-1.3.8-c6350a774d7c89877019593720b9d056da950098.jar"
-        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.ion/ion/1.3.8/1fc0413880bde2e3ffab3c5e5a243f39dd409b1c/ion-1.3.8.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1fc0413880bde2e3ffab3c5e5a243f39dd409b1c"/>
-    <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/androidasync-1.3.8-50b9dff907df33764b7089c97f5edb5054d485bd.jar"
-        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.async/androidasync/1.3.8/1f8e4f77d5f24179688c32b24dd5f79e889e7110/androidasync-1.3.8.jar"
-        jumboMode="false"
-        revision="20.0.0"
-        sha1="1f8e4f77d5f24179688c32b24dd5f79e889e7110"/>
 
 </pre-dex-items>
