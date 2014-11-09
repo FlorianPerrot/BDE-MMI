@@ -65,6 +65,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         holder.title.setText(item.getTitle());
         if(item instanceof Event){
+            holder.lieu.setBackgroundResource(R.drawable.place_background_selector);
             final String lieu = ((Event) item).getLieu();
 //            final String lieu = "Parc Paul Mistral Grenoble";
             holder.lieu.setText(lieu);
@@ -80,9 +81,12 @@ public class ListViewAdapter extends BaseAdapter {
                         }catch (Exception e){e.printStackTrace();}
                     }
                 });
+            }else{
+                holder.lieu.setBackgroundResource(R.drawable.without_place_background_selector);
             }
         }else{
             holder.lieu.setText("");
+            holder.lieu.setBackgroundResource(R.drawable.without_place_background_selector);
         }
 
         holder.date.setText(item.getDateFormated());
