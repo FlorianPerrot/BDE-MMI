@@ -19,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -42,6 +43,7 @@ public class BDEMain extends ActionBarActivity
     private ArrayList<ActuFragment> pages;
     private ViewPagerAdapter mViewPagerAdapter;
     private Spinner spinner;
+    private static long back_pressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,5 +150,12 @@ public class BDEMain extends ActionBarActivity
 //            return true;
 //        }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onBackPressed(){
+        if (back_pressed + 2000 > System.currentTimeMillis()) super.onBackPressed();
+        else Toast.makeText(getBaseContext(), R.string.double_back_toast, Toast.LENGTH_SHORT).show();
+        back_pressed = System.currentTimeMillis();
     }
 }
