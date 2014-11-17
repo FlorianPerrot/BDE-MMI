@@ -1,6 +1,8 @@
 package com.bde.lpsmin.bdemmi;
 
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
@@ -150,6 +152,15 @@ public class BDEMain extends ActionBarActivity
 //            return true;
 //        }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putLong(Utils.PREFERENCES_DATE_KEY, System.currentTimeMillis());
+        editor.apply();
     }
 
     @Override

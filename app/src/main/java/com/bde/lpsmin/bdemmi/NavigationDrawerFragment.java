@@ -63,6 +63,7 @@ public class NavigationDrawerFragment extends Fragment {
     private boolean mUserLearnedDrawer;
     private CheckedTextView notifActuCheckBox;
     private CheckedTextView notifEventCheckBox;
+    private SharedPreferences preferences;
 
     public NavigationDrawerFragment() {
 
@@ -131,18 +132,28 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(getActivity().getApplicationContext());
+
         notifActuCheckBox = (CheckedTextView) getActivity().findViewById(R.id.notif_actu_checkbox);
+        notifActuCheckBox.setChecked(preferences.getBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, false));
         notifActuCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 notifActuCheckBox.toggle();
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, notifActuCheckBox.isChecked());
+                editor.apply();
             }
         });
         notifEventCheckBox = (CheckedTextView) getActivity().findViewById(R.id.notif_event_checkbox);
+        notifEventCheckBox.setChecked(preferences.getBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, false));
         notifEventCheckBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 notifEventCheckBox.toggle();
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, notifEventCheckBox.isChecked());
+                editor.apply();
             }
         });
 

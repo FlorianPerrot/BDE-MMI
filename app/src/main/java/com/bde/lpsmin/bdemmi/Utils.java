@@ -8,6 +8,12 @@ public class Utils {
     public static final String rest_get_actu = "http://bde-mmi.alwaysdata.net/json/actu/all";
     public static final String rest_get_event = "http://bde-mmi.alwaysdata.net/json/event/prochainement";
     public static final String rest_get_event_histo = "http://bde-mmi.alwaysdata.net/json/event/historique";
+    public static final int UPDATE_AM = 10; //10h
+    public static final int UPDATE_PM = 16; //16h
+    public static String rest_get_news = "http://bde-mmi.alwaysdata.net/json/news/";
+    public static final String PREFERENCES_DATE_KEY = "date_key";
+    public static final String PREFERENCES_ACTU_BOOL_KEY = "notif_actu_checked";
+    public static final String PREFERENCES_EVENT_BOOL_KEY = "notif_event_checked";
 
     public final static String mail = "bdemmi.grenoble@gmail.com";
     /**
