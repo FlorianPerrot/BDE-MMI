@@ -143,6 +143,14 @@ public class NavigationDrawerFragment extends Fragment {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, notifActuCheckBox.isChecked());
                 editor.apply();
+                if(mCallbacks != null) {
+                    if (!preferences.getBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, false)
+                            && !preferences.getBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, false)) {
+                        mCallbacks.stopNotificationService();
+                    }else{
+                        mCallbacks.startNotificationService();
+                    }
+                }
             }
         });
         notifEventCheckBox = (CheckedTextView) getActivity().findViewById(R.id.notif_event_checkbox);
@@ -154,6 +162,14 @@ public class NavigationDrawerFragment extends Fragment {
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, notifEventCheckBox.isChecked());
                 editor.apply();
+                if(mCallbacks != null) {
+                    if (!preferences.getBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, false)
+                            && !preferences.getBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, false)) {
+                        mCallbacks.stopNotificationService();
+                    }else{
+                        mCallbacks.startNotificationService();
+                    }
+                }
             }
         });
 
@@ -362,5 +378,7 @@ public class NavigationDrawerFragment extends Fragment {
          * Called when an item in the navigation drawer is selected.
          */
         void onNavigationDrawerItemSelected(int position);
+        void stopNotificationService();
+        void startNotificationService();
     }
 }

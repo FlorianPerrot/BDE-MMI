@@ -1,12 +1,13 @@
 package com.bde.lpsmin.bdemmi;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
@@ -14,13 +15,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.support.v4.widget.DrawerLayout;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -43,14 +40,18 @@ public class BDEMain extends ActionBarActivity
     private static final int PAGE_EVENT = 1;
     private int currentPage = PAGE_ACTU;
     private ArrayList<ActuFragment> pages;
-    private ViewPagerAdapter mViewPagerAdapter;
-    private Spinner spinner;
     private static long back_pressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bdemain);
+
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        if(preferences.getBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, false)
+           || preferences.getBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, false)){
+            startNotificationService();
+        }
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -64,7 +65,7 @@ public class BDEMain extends ActionBarActivity
         pages = new ArrayList<ActuFragment>();
         pages.add(ActuFragment.newInstance());
         pages.add(EventFragment.newInstance());
-        mViewPagerAdapter = new ViewPagerAdapter(this, getSupportFragmentManager(), pages);
+        ViewPagerAdapter mViewPagerAdapter = new ViewPagerAdapter(this, getSupportFragmentManager(), pages);
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mViewPagerAdapter);
 
@@ -74,29 +75,25 @@ public class BDEMain extends ActionBarActivity
             ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getApplicationContext(),
                     R.layout.event_spinner, getResources().getStringArray(R.array.event_spinner));
             adapter.setDropDownViewResource(R.layout.event_spinner_item);
-            spinner = (Spinner) view.findViewById(R.id.spinner);
+            Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
             spinner.setAdapter(adapter);
             spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                 private boolean firstTime = true;
 
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                    if(!firstTime) {
+                    if (!firstTime) {
                         pages.get(PAGE_EVENT).loadItems(i);
                     }
                     firstTime = false;
                 }
 
                 @Override
-                public void onNothingSelected(AdapterView<?> adapterView) {}
+                public void onNothingSelected(AdapterView<?> adapterView) {
+                }
             });
 
-            int gravity;
-            if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ) {
-                gravity = Gravity.END;
-            }else{
-                gravity = Gravity.RIGHT;
-            }
+            int gravity = GravityCompat.END;
             getSupportActionBar().setCustomView(view, new ActionBar.LayoutParams(gravity));
 
             mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -119,6 +116,18 @@ public class BDEMain extends ActionBarActivity
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         mViewPager.setCurrentItem(position, true);
+    }
+
+    @Override
+    public void stopNotificationService() {
+        stopService(new Intent(this, NotificationsService.class));
+        Log.v("stopNotificationsService", "called");
+    }
+
+    @Override
+    public void startNotificationService() {
+        startService(new Intent(this, NotificationsService.class));
+        Log.v("startNotificationsService", "called");
     }
 
     public void restoreActionBar() {
@@ -155,8 +164,8 @@ public class BDEMain extends ActionBarActivity
     }
 
     @Override
-    public void onPause(){
-        super.onPause();
+    public void onStop(){
+        super.onStop();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putLong(Utils.PREFERENCES_DATE_KEY, System.currentTimeMillis());

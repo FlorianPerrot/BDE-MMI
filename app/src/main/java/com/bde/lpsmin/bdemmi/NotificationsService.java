@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.os.IBinder;
+import android.util.Log;
 
 import java.util.Calendar;
 
@@ -46,10 +47,17 @@ public class NotificationsService extends Service {
         mAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendarAm.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pIntentAm);
         mAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendarPm.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pIntentPm);
 
+        Log.v("NotificationsService", "started");
     }
 
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.v("NotificationsService", "destroyed");
     }
 }
