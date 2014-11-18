@@ -53,6 +53,9 @@ public class BDEMain extends ActionBarActivity
             startNotificationService();
         }
 
+        long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
+        Log.v("date", Utils.rest_get_news+date);
+
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -121,13 +124,11 @@ public class BDEMain extends ActionBarActivity
     @Override
     public void stopNotificationService() {
         stopService(new Intent(this, NotificationsService.class));
-        Log.v("stopNotificationsService", "called");
     }
 
     @Override
     public void startNotificationService() {
         startService(new Intent(this, NotificationsService.class));
-        Log.v("startNotificationsService", "called");
     }
 
     public void restoreActionBar() {

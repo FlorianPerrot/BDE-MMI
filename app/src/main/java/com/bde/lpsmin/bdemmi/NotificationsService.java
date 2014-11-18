@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -15,9 +16,10 @@ import java.util.Calendar;
  */
 public class NotificationsService extends Service {
 
-    public static final String ACTION_NOTIFICATION = "action_notification";
+    public static final String ACTION_NOTIFICATION = "com.bde.lpsmin.bdemmi.action_notification";
     private AlarmManager mAlarmManager;
     private Context mContext;
+    private NotificationsReceiver mNotificationsReceiver;
 
     @Override
     public void onCreate() {
@@ -35,7 +37,6 @@ public class NotificationsService extends Service {
         calendarPm.setTimeInMillis(System.currentTimeMillis());
         calendarPm.set(Calendar.HOUR_OF_DAY, Utils.UPDATE_PM);
 
-
         Intent intentAm = new Intent(mContext, NotificationsReceiver.class);
         intentAm.setAction(ACTION_NOTIFICATION);
         PendingIntent pIntentAm = PendingIntent.getBroadcast(mContext, 0, intentAm, 0);
@@ -46,6 +47,12 @@ public class NotificationsService extends Service {
 
         mAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendarAm.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pIntentAm);
         mAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendarPm.getTimeInMillis(), AlarmManager.INTERVAL_DAY, pIntentPm);
+
+        mNotificationsReceiver = new NotificationsReceiver();
+        IntentFilter filter = new IntentFilter();
+        filter.setPriority(2000);
+        filter.addAction(ACTION_NOTIFICATION);
+        mContext.registerReceiver(mNotificationsReceiver, filter);
 
         Log.v("NotificationsService", "started");
     }
@@ -59,5 +66,8 @@ public class NotificationsService extends Service {
     public void onDestroy(){
         super.onDestroy();
         Log.v("NotificationsService", "destroyed");
+        try {
+            mContext.unregisterReceiver(mNotificationsReceiver);
+        }catch (Exception e){}
     }
 }

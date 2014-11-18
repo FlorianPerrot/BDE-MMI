@@ -21,6 +21,8 @@ public class NotificationsReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         String action = intent.getAction();
+        Log.v("onReceive ACTION", action);
+        showNotification(context, "Title", "ticker", "contentText");
         if (action.equals(NotificationsService.ACTION_NOTIFICATION)) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
