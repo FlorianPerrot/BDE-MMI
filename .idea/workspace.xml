@@ -30,11 +30,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="306554db-ce5c-4d87-9119-1c9da9638d99" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/BootReceiver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/BDEMain.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/BDEMain.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsReceiver.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsReceiver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/Utils.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/Utils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BDE MMI.iws" />
@@ -61,7 +61,7 @@
       <file leaf-file-name="BDEMain.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/BDEMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="782" max-vertical-offset="3864">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2553" max-vertical-offset="3864">
               <caret line="131" column="5" selection-start-line="131" selection-start-column="5" selection-end-line="131" selection-end-column="5" />
               <folding />
             </state>
@@ -71,8 +71,8 @@
       <file leaf-file-name="NotificationsService.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.15672913" vertical-offset="759" max-vertical-offset="1564">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.425" vertical-offset="458" max-vertical-offset="1403">
+              <caret line="40" column="48" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -81,18 +81,34 @@
       <file leaf-file-name="NotificationsReceiver.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsReceiver.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1242">
-              <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1564">
+              <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
+              <folding>
+                <element signature="e#1322#2626#0" expanded="true" />
+                <element signature="e#1760#1820#0" expanded="true" />
+                <element signature="e#1898#1923#0" expanded="true" />
+                <element signature="e#2234#2295#0" expanded="true" />
+                <element signature="e#2603#2604#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-13.8" vertical-offset="138" max-vertical-offset="805">
+              <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/Utils.java">
+      <file leaf-file-name="ActuFragment.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/ActuFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="1265">
-              <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2162" max-vertical-offset="3519">
+              <caret line="127" column="111" selection-start-line="127" selection-start-column="44" selection-end-line="127" selection-end-column="111" />
               <folding />
             </state>
           </provider>
@@ -1238,14 +1254,14 @@
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/without_place_background_selector.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/ListViewAdapter.java" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NavigationDrawerFragment.java" />
-        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/BootReceiver.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/BDEMain.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsReceiver.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/Utils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/Utils.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsReceiver.java" />
       </list>
     </option>
   </component>
@@ -1281,8 +1297,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1533,6 +1547,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -1843,10 +1859,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="1334">
           <caret line="36" column="23" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="23" />
-          <folding>
-            <element signature="e#3977#5229#0" expanded="false" />
-            <element signature="e#5210#5211#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1897,10 +1910,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="421" max-vertical-offset="1334">
           <caret line="36" column="23" selection-start-line="36" selection-start-column="19" selection-end-line="36" selection-end-column="23" />
-          <folding>
-            <element signature="e#3977#5229#0" expanded="false" />
-            <element signature="e#5210#5211#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2150,25 +2160,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="690">
-          <caret line="16" column="68" selection-start-line="16" selection-start-column="37" selection-end-line="16" selection-end-column="68" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/ActuFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1978" max-vertical-offset="3565">
-          <caret line="122" column="76" selection-start-line="118" selection-start-column="16" selection-end-line="122" selection-end-column="76" />
-          <folding>
-            <element signature="e#3977#5229#0" expanded="false" />
-            <element signature="e#5210#5211#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/navigation_drawer.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2184,37 +2175,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.38333333" vertical-offset="0" max-vertical-offset="600">
           <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.07333333" vertical-offset="136" max-vertical-offset="874">
-          <caret line="4" column="42" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="42" />
-          <folding>
-            <element signature="e#413#431#0" expanded="true" />
-            <element signature="e#628#646#0" expanded="true" />
-            <element signature="e#1002#1038#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="44" max-vertical-offset="1265">
-          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsReceiver.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1242">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2234,10 +2194,58 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77" vertical-offset="665" max-vertical-offset="1311">
+          <caret line="49" column="53" selection-start-line="49" selection-start-column="53" selection-end-line="49" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/ActuFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2162" max-vertical-offset="3519">
+          <caret line="127" column="111" selection-start-line="127" selection-start-column="44" selection-end-line="127" selection-end-column="111" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.655" vertical-offset="297" max-vertical-offset="920">
+          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
+          <folding>
+            <element signature="e#706#724#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.8" vertical-offset="138" max-vertical-offset="805">
+          <caret line="21" column="41" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsReceiver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="402" max-vertical-offset="1564">
+          <caret line="46" column="70" selection-start-line="46" selection-start-column="70" selection-end-line="46" selection-end-column="70" />
+          <folding>
+            <element signature="e#1322#2626#0" expanded="true" />
+            <element signature="e#1760#1820#0" expanded="true" />
+            <element signature="e#1898#1923#0" expanded="true" />
+            <element signature="e#2234#2295#0" expanded="true" />
+            <element signature="e#2603#2604#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/bde/lpsmin/bdemmi/NotificationsService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.15672913" vertical-offset="759" max-vertical-offset="1564">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.425" vertical-offset="458" max-vertical-offset="1403">
+          <caret line="40" column="48" selection-start-line="40" selection-start-column="48" selection-end-line="40" selection-end-column="48" />
           <folding />
         </state>
       </provider>

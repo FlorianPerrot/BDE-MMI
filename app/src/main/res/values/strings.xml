@@ -16,6 +16,10 @@
     <string name="contact_bde_title">Contacter le BDE !</string>
     <string name="double_back_toast">Appuyer de nouveau pour quitter</string>
     <string name="notifications_service_name">BDE MMI Notifications Service</string>
+    <string name="notif_actu_title">Actualités du BDE MMI</string>
+    <string name="notif_event_title">Événements du BDE MMI</string>
+    <string name="notif_actu_ticker">%d nouvelles actualités !</string>
+    <string name="notif_event_ticker">%d nouveaux évènements !</string>
 
     <string-array name="event_spinner">
         <item>Prochainement</item>

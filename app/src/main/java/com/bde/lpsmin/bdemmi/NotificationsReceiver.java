@@ -18,11 +18,12 @@ import com.koushikdutta.ion.Ion;
  * Created by lheido on 17/11/14.
  */
 public class NotificationsReceiver extends BroadcastReceiver {
+    private static final int NOTIFICATION_ID_ACTU = 0;
+    private static final int NOTIFICATION_ID_EVENT = 1;
+
     @Override
     public void onReceive(final Context context, Intent intent) {
         String action = intent.getAction();
-        Log.v("onReceive ACTION", action);
-        showNotification(context, "Title", "ticker", "contentText");
         if (action.equals(NotificationsService.ACTION_NOTIFICATION)) {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
@@ -33,15 +34,27 @@ public class NotificationsReceiver extends BroadcastReceiver {
                     .asJsonArray()
                     .setCallback(new FutureCallback<JsonArray>() {
                         public void onCompleted(Exception e, JsonArray result) {
-                            showNotification(context, "Title", "ticker", "contentText");
+                            if(result != null){
+                                try {
+                                    int nb_actu = result.getAsJsonObject().get(Utils.JSON_NB_ACTU).getAsInt();
+                                    if (nb_actu != 0) {
+                                        String ticker = String.format(context.getResources().getString(R.string.notif_actu_ticker), nb_actu);
+                                        showNotification(context, R.string.notif_actu_title, ticker, NOTIFICATION_ID_ACTU);
+                                    }
+                                    int nb_event = result.getAsJsonObject().get(Utils.JSON_NB_EVENT).getAsInt();
+                                    if (nb_event != 0) {
+                                        String ticker = String.format(context.getResources().getString(R.string.notif_event_ticker), nb_event);
+                                        showNotification(context, R.string.notif_event_title, ticker, NOTIFICATION_ID_EVENT);
+                                    }
+                                }catch (Exception ex){ex.printStackTrace();}
+                            }
                         }
                     });
             }
         }
     }
 
-    public static void showNotification(Context context, String title, String ticker,
-                                        String contentText){
+    public static void showNotification(Context context, int title, String ticker, int id){
         Intent intent = new Intent(context, BDEMain.class);
         PendingIntent pIntent = PendingIntent.getActivity(context, 0, intent, 0);
 
@@ -49,8 +62,7 @@ public class NotificationsReceiver extends BroadcastReceiver {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setTicker(ticker)
-                .setContentTitle(title)
-                .setContentText(contentText)
+                .setContentTitle(context.getResources().getString(title))
                 .setPriority(2)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true);
@@ -58,6 +70,6 @@ public class NotificationsReceiver extends BroadcastReceiver {
         // Create Notification Manager
         NotificationManager notificationmanager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         // Build Notification with Notification Manager
-        notificationmanager.notify(0, builder.build());
+        notificationmanager.notify(id, builder.build());
     }
 }

@@ -46,4 +46,6 @@ public class Utils {
     public static final String JSON_IMAGE = "image";
     public static final String JSON_PLACE = "lieu";
     public static final String JSON_DATE = "date";
+    public static final String JSON_NB_ACTU = "actu";
+    public static final String JSON_NB_EVENT = "event";
 }
