@@ -53,8 +53,8 @@ public class BDEMain extends ActionBarActivity
             startNotificationService();
         }
 
-        long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
-        Log.v("date", Utils.rest_get_news+date);
+//        long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
+//        Log.v("date", Utils.rest_get_news+date);
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
@@ -133,7 +133,6 @@ public class BDEMain extends ActionBarActivity
 
     public void restoreActionBar() {
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setDisplayShowCustomEnabled(currentPage == PAGE_EVENT);
         actionBar.setTitle(mTitle);

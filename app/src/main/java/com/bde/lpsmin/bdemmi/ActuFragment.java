@@ -1,6 +1,7 @@
 package com.bde.lpsmin.bdemmi;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -21,8 +22,6 @@ import com.tjerkw.slideexpandable.library.SlideExpandableListAdapter;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
 
 /**
  * Created by lheido on 25/09/14.
@@ -69,7 +68,6 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         );
         loadItems(currentEvent);
 
-
         return rootView;
     }
 
@@ -79,6 +77,14 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         adapter.notifyDataSetChanged();
         GetActuTask task = new GetActuTask(getActivity(), currentEvent);
         task.execTask();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        if(adapter != null) {
+            adapter.notifyDataSetChanged();
+        }
     }
 
     @Override
@@ -136,7 +142,10 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                                 e.printStackTrace();
                             }
                         }catch (Exception ex){ex.printStackTrace();}
-                        swipeLayout.setRefreshing(false);
+                        if(act.get() != null) {
+                            swipeLayout.setRefreshing(false);
+                        }
+
                     }
                 });
                 return true;

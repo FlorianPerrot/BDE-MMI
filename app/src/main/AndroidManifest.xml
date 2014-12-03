@@ -28,7 +28,7 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
-        <receiver android:name=".NotificationsReceiver" />
+        <receiver android:name=".NotificationsReceiver" android:enabled="true"/>
     </application>
 
 </manifest>

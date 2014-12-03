@@ -64,6 +64,7 @@ public class NavigationDrawerFragment extends Fragment {
     private CheckedTextView notifActuCheckBox;
     private CheckedTextView notifEventCheckBox;
     private SharedPreferences preferences;
+    private CheckedTextView navigationStartupCheckBox;
 
     public NavigationDrawerFragment() {
 
@@ -173,6 +174,18 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
+        navigationStartupCheckBox = (CheckedTextView) getActivity().findViewById(R.id.navigation_startup_checkbox);
+        navigationStartupCheckBox.setChecked(preferences.getBoolean(Utils.PREFERENCES_NAVIGATION_STARTUP, true));
+        navigationStartupCheckBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navigationStartupCheckBox.toggle();
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean(Utils.PREFERENCES_NAVIGATION_STARTUP, navigationStartupCheckBox.isChecked());
+                editor.apply();
+            }
+        });
+
         ImageButton menu_facebook = (ImageButton) getActivity().findViewById(R.id.menu_facebook);
         menu_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,9 +268,7 @@ public class NavigationDrawerFragment extends Fragment {
             }
         };
 
-        // If the user hasn't 'learned' about the drawer, open it to introduce them to the drawer,
-        // per the navigation drawer design guidelines.
-        if (!mUserLearnedDrawer && !mFromSavedInstanceState) {
+        if(preferences.getBoolean(Utils.PREFERENCES_NAVIGATION_STARTUP, true)){
             mDrawerLayout.openDrawer(mFragmentContainerView);
         }
 
@@ -361,7 +372,6 @@ public class NavigationDrawerFragment extends Fragment {
     private void showGlobalContextActionBar() {
         ActionBar actionBar = getActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
         actionBar.setDisplayShowCustomEnabled(false);
         actionBar.setTitle(R.string.app_name);
     }

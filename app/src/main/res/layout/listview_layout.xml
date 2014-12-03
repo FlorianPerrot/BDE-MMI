@@ -16,5 +16,7 @@
         android:choiceMode="singleChoice"
         android:id="@+id/list_actu"
         />
-
     </android.support.v4.widget.SwipeRefreshLayout>
+
+
+

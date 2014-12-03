@@ -8,7 +8,7 @@
     <color name="grey">#ff5d1a19</color>
     <color name="actionbar_text">#ffffffff</color>
     <color name="actionbar">@color/defaultColor</color>
-    <color name="navigation_drawer">@color/defaultColorDarken</color>
+    <color name="navigation_drawer">#ffd7d7d7</color>
     <color name="navigation_drawer_separator">#ffffffff</color>
     <color name="navigation_drawer_item_pressed">@color/defaultColor</color>
     <color name="navigation_drawer_item">@android:color/transparent</color>

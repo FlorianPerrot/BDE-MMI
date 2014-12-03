@@ -17,17 +17,14 @@ import java.util.Calendar;
 public class NotificationsService extends Service {
 
     public static final String ACTION_NOTIFICATION = "com.bde.lpsmin.bdemmi.action_notification";
-    private AlarmManager mAlarmManager;
-    private Context mContext;
-    private NotificationsReceiver mNotificationsReceiver;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        mContext = getApplicationContext();
+        Context mContext = getApplicationContext();
 
-        mAlarmManager = (AlarmManager)mContext.getSystemService(Context.ALARM_SERVICE);
+        AlarmManager mAlarmManager = (AlarmManager) mContext.getSystemService(Context.ALARM_SERVICE);
 
         Calendar calendarAm = Calendar.getInstance();
         calendarAm.setTimeInMillis(System.currentTimeMillis());
@@ -46,9 +43,9 @@ public class NotificationsService extends Service {
         PendingIntent pIntentPm = PendingIntent.getBroadcast(mContext, 0, intentPm, 0);
 
         mAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendarAm.getTimeInMillis(),
-                                          AlarmManager.INTERVAL_DAY, pIntentAm);
+                AlarmManager.INTERVAL_DAY, pIntentAm);
         mAlarmManager.setInexactRepeating(AlarmManager.RTC_WAKEUP, calendarPm.getTimeInMillis(),
-                                          AlarmManager.INTERVAL_DAY, pIntentAm);
+                AlarmManager.INTERVAL_DAY, pIntentPm);
 
         Log.v("NotificationsService", "started");
     }

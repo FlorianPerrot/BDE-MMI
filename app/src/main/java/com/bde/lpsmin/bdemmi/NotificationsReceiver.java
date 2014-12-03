@@ -28,20 +28,25 @@ public class NotificationsReceiver extends BroadcastReceiver {
             SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
             Log.v("date", Utils.rest_get_news+date);
+//            showNotification(context, R.string.notif_actu_title, ""+date, NOTIFICATION_ID_ACTU);
             if(date != 0L) {
                 Ion.with(context)
                     .load(Utils.rest_get_news + date)
                     .asJsonArray()
                     .setCallback(new FutureCallback<JsonArray>() {
                         public void onCompleted(Exception e, JsonArray result) {
-                            if(result != null){
+//                            showNotification(context, R.string.notif_event_title, "test "+e, NOTIFICATION_ID_EVENT);
+                            if(e != null) {
+                                Log.v("Ion.onCompleted", e.getMessage());
+                            }
+                            if(result != null && result.size() != 0){
                                 try {
-                                    int nb_actu = result.getAsJsonObject().get(Utils.JSON_NB_ACTU).getAsInt();
+                                    int nb_actu = result.get(0).getAsJsonObject().get(Utils.JSON_NB_ACTU).getAsInt();
                                     if (nb_actu != 0) {
                                         String ticker = String.format(context.getResources().getString(R.string.notif_actu_ticker), nb_actu);
                                         showNotification(context, R.string.notif_actu_title, ticker, NOTIFICATION_ID_ACTU);
                                     }
-                                    int nb_event = result.getAsJsonObject().get(Utils.JSON_NB_EVENT).getAsInt();
+                                    int nb_event = result.get(0).getAsJsonObject().get(Utils.JSON_NB_EVENT).getAsInt();
                                     if (nb_event != 0) {
                                         String ticker = String.format(context.getResources().getString(R.string.notif_event_ticker), nb_event);
                                         showNotification(context, R.string.notif_event_title, ticker, NOTIFICATION_ID_EVENT);
@@ -63,6 +68,7 @@ public class NotificationsReceiver extends BroadcastReceiver {
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setTicker(ticker)
                 .setContentTitle(context.getResources().getString(title))
+                .setContentText(ticker)
                 .setPriority(2)
                 .setContentIntent(pIntent)
                 .setAutoCancel(true);

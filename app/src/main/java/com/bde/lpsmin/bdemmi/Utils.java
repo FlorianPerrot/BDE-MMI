@@ -14,6 +14,7 @@ public class Utils {
     public static final String PREFERENCES_DATE_KEY = "date_key";
     public static final String PREFERENCES_ACTU_BOOL_KEY = "notif_actu_checked";
     public static final String PREFERENCES_EVENT_BOOL_KEY = "notif_event_checked";
+    public static final String PREFERENCES_NAVIGATION_STARTUP = "navigation_startup";
 
     public final static String mail = "bdemmi.grenoble@gmail.com";
     /**
