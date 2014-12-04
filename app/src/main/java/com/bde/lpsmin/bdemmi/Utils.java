@@ -1,5 +1,12 @@
 package com.bde.lpsmin.bdemmi;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
+
+import java.util.Calendar;
+
 /**
  * Created by lheido on 01/10/14.
  */
@@ -49,4 +56,63 @@ public class Utils {
     public static final String JSON_DATE = "date";
     public static final String JSON_NB_ACTU = "actu";
     public static final String JSON_NB_EVENT = "event";
+
+    public static final String ACTION_NOTIFICATION_AM = "com.bde.lpsmin.bdemmi.action_notification_am";
+    public static final String ACTION_NOTIFICATION_PM = "com.bde.lpsmin.bdemmi.action_notification_pm";
+
+    public static void startAlarms(Context context){
+        AlarmManager mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+        Calendar calendarAm = Calendar.getInstance();
+        calendarAm.setTimeInMillis(System.currentTimeMillis());
+        calendarAm.set(Calendar.HOUR_OF_DAY, Utils.UPDATE_AM);
+        calendarAm.set(Calendar.MINUTE, 0);
+        calendarAm.set(Calendar.SECOND, 0);
+
+        Calendar calendarPm = Calendar.getInstance();
+        calendarPm.setTimeInMillis(System.currentTimeMillis());
+        calendarPm.set(Calendar.HOUR_OF_DAY, Utils.UPDATE_PM);
+        calendarPm.set(Calendar.MINUTE, 0);
+        calendarPm.set(Calendar.SECOND, 0);
+
+        Intent intentAm = new Intent(context, NotificationsReceiver.class);
+        intentAm.setAction(ACTION_NOTIFICATION_AM);
+        PendingIntent pIntentAm = PendingIntent.getBroadcast(context, 0, intentAm, 0);
+
+        Intent intentPm = new Intent(context, NotificationsReceiver.class);
+        intentPm.setAction(ACTION_NOTIFICATION_PM);
+        PendingIntent pIntentPm = PendingIntent.getBroadcast(context, 0, intentPm, 0);
+
+        mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendarAm.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, pIntentAm);
+        mAlarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendarPm.getTimeInMillis(),
+                AlarmManager.INTERVAL_DAY, pIntentPm);
+    }
+
+    public static void stopAlarms(Context context){
+        AlarmManager mAlarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+
+        Calendar calendarAm = Calendar.getInstance();
+        calendarAm.setTimeInMillis(System.currentTimeMillis());
+        calendarAm.set(Calendar.HOUR_OF_DAY, Utils.UPDATE_AM);
+        calendarAm.set(Calendar.MINUTE, 0);
+        calendarAm.set(Calendar.SECOND, 0);
+
+        Calendar calendarPm = Calendar.getInstance();
+        calendarPm.setTimeInMillis(System.currentTimeMillis());
+        calendarPm.set(Calendar.HOUR_OF_DAY, Utils.UPDATE_PM);
+        calendarPm.set(Calendar.MINUTE, 0);
+        calendarPm.set(Calendar.SECOND, 0);
+
+        Intent intentAm = new Intent(context, NotificationsReceiver.class);
+        intentAm.setAction(ACTION_NOTIFICATION_AM);
+        PendingIntent pIntentAm = PendingIntent.getBroadcast(context, 0, intentAm, 0);
+
+        Intent intentPm = new Intent(context, NotificationsReceiver.class);
+        intentPm.setAction(ACTION_NOTIFICATION_PM);
+        PendingIntent pIntentPm = PendingIntent.getBroadcast(context, 0, intentPm, 0);
+
+        mAlarmManager.cancel(pIntentAm);
+        mAlarmManager.cancel(pIntentPm);
+    }
 }

@@ -24,8 +24,8 @@ public class NotificationsReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(final Context context, Intent intent) {
         String action = intent.getAction();
-        if (action.equals(NotificationsService.ACTION_NOTIFICATION)) {
-            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        if (action.equals(Utils.ACTION_NOTIFICATION_AM) || action.equals(Utils.ACTION_NOTIFICATION_PM)) {
+            final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
             Log.v("date", Utils.rest_get_news+date);
 //            showNotification(context, R.string.notif_actu_title, ""+date, NOTIFICATION_ID_ACTU);
@@ -37,17 +37,17 @@ public class NotificationsReceiver extends BroadcastReceiver {
                         public void onCompleted(Exception e, JsonArray result) {
 //                            showNotification(context, R.string.notif_event_title, "test "+e, NOTIFICATION_ID_EVENT);
                             if(e != null) {
-                                Log.v("Ion.onCompleted", e.getMessage());
+                                e.printStackTrace();
                             }
                             if(result != null && result.size() != 0){
                                 try {
                                     int nb_actu = result.get(0).getAsJsonObject().get(Utils.JSON_NB_ACTU).getAsInt();
-                                    if (nb_actu != 0) {
+                                    if (nb_actu != 0 && preferences.getBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, true)) {
                                         String ticker = String.format(context.getResources().getString(R.string.notif_actu_ticker), nb_actu);
                                         showNotification(context, R.string.notif_actu_title, ticker, NOTIFICATION_ID_ACTU);
                                     }
                                     int nb_event = result.get(0).getAsJsonObject().get(Utils.JSON_NB_EVENT).getAsInt();
-                                    if (nb_event != 0) {
+                                    if (nb_event != 0 && preferences.getBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, true)) {
                                         String ticker = String.format(context.getResources().getString(R.string.notif_event_ticker), nb_event);
                                         showNotification(context, R.string.notif_event_title, ticker, NOTIFICATION_ID_EVENT);
                                     }

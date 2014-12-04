@@ -14,23 +14,29 @@
         revision="21.0.2"
         sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
     <item
+        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/androidasync-2.0.1-65bd09959eb8a484a705cb9bc801e1fa2cea868d.jar"
+        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.async/androidasync/2.0.1/dcabdd12da68872cc56c0890fe28416b0aab9668/androidasync-2.0.1.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="dcabdd12da68872cc56c0890fe28416b0aab9668"/>
+    <item
         dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-48a5e866ac9300bac2af6ef8fae3fec79b475b11.jar"
         jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.github.nirhart/parallaxscroll/1.0/classes.jar"
         jumboMode="false"
         revision="21.0.2"
         sha1="2574796fab3c6145ca6170821badd305f5e03669"/>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/androidasync-1.4.1-ebf891a5b6e27554a8ee8c0536cf09d283dbdfc1.jar"
-        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.async/androidasync/1.4.1/a2d20e19f7c94ff11691f649bb9d81d3729ba0d3/androidasync-1.4.1.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="a2d20e19f7c94ff11691f649bb9d81d3729ba0d3"/>
-    <item
         dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-ac5c6aaae9346b22dad7e9af35f5e557f3a80188.jar"
         jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/it.sephiroth.android.library.fork.slideexpandable/slideexpandable/1.0.3.1/classes.jar"
         jumboMode="false"
         revision="20.0.0"
         sha1="e16df45e956819fe13ceb0e15345a3643c897902"/>
+    <item
+        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/ion-2.0.1-6f4ffc952a1d26ce41c82dec1c8dee96e52e887e.jar"
+        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.ion/ion/2.0.1/1bfd0a773b3e6f55299bf495c817141eb1facb8/ion-2.0.1.jar"
+        jumboMode="false"
+        revision="21.0.2"
+        sha1="01bfd0a773b3e6f55299bf495c817141eb1facb8"/>
     <item
         dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-79d5050ba5d97154f28149943b51430bea5d0deb.jar"
         jar="/home/ubuntu/sdk_android/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
@@ -49,12 +55,6 @@
         jumboMode="false"
         revision="20.0.0"
         sha1="7ed01353649330c692473b85d5c64db4218338db"/>
-    <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/ion-1.4.1-806c75d92f5a7286006ed48de143adf1782b2c7f.jar"
-        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.ion/ion/1.4.1/17b95706dc1170a859577e0a8311e5bd677e1034/ion-1.4.1.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="17b95706dc1170a859577e0a8311e5bd677e1034"/>
     <item
         dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-ecc93f86f7dbf9c2a6e64d133dc56bf87b2f5f5a.jar"
         jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"

@@ -24,7 +24,6 @@ import android.widget.CheckedTextView;
 import android.widget.ImageButton;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -147,9 +146,9 @@ public class NavigationDrawerFragment extends Fragment {
                 if(mCallbacks != null) {
                     if (!preferences.getBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, false)
                             && !preferences.getBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, false)) {
-                        mCallbacks.stopNotificationService();
+                        mCallbacks.stopNotificationAlarm();
                     }else{
-                        mCallbacks.startNotificationService();
+                        mCallbacks.startNotificationAlarm();
                     }
                 }
             }
@@ -166,9 +165,9 @@ public class NavigationDrawerFragment extends Fragment {
                 if(mCallbacks != null) {
                     if (!preferences.getBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, false)
                             && !preferences.getBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, false)) {
-                        mCallbacks.stopNotificationService();
+                        mCallbacks.stopNotificationAlarm();
                     }else{
-                        mCallbacks.startNotificationService();
+                        mCallbacks.startNotificationAlarm();
                     }
                 }
             }
@@ -388,7 +387,7 @@ public class NavigationDrawerFragment extends Fragment {
          * Called when an item in the navigation drawer is selected.
          */
         void onNavigationDrawerItemSelected(int position);
-        void stopNotificationService();
-        void startNotificationService();
+        void stopNotificationAlarm();
+        void startNotificationAlarm();
     }
 }

@@ -1,16 +1,12 @@
 package com.bde.lpsmin.bdemmi;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -50,7 +46,7 @@ public class BDEMain extends ActionBarActivity
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         if(preferences.getBoolean(Utils.PREFERENCES_ACTU_BOOL_KEY, false)
            || preferences.getBoolean(Utils.PREFERENCES_EVENT_BOOL_KEY, false)){
-            startNotificationService();
+            startNotificationAlarm();
         }
 
 //        long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
@@ -122,13 +118,13 @@ public class BDEMain extends ActionBarActivity
     }
 
     @Override
-    public void stopNotificationService() {
-        stopService(new Intent(this, NotificationsService.class));
+    public void stopNotificationAlarm() {
+        Utils.stopAlarms(this);
     }
 
     @Override
-    public void startNotificationService() {
-        startService(new Intent(this, NotificationsService.class));
+    public void startNotificationAlarm() {
+        Utils.startAlarms(this);
     }
 
     public void restoreActionBar() {
