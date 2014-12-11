@@ -1,65 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<pre-dex-items>
+<items version="2" >
 
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/gson-2.3-ca086433d033ffc526ce5d9f83ac8042dea4e3e6.jar"
-        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3/5fc52c41ef0239d1093a1eb7c3697036183677ce/gson-2.3.jar"
+        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/classes.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce"/>
+        revision="21.1.1"
+        sha1="d1bf02de1c56d942e7a9d093b8610ba1ef4128e3">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-519bab0fb000a03a3e58a12c0a5f1ab82703a6b9.jar" />
+    </item>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-5a4b8905a4a12dbd68e1541e89ec23ef0a6c06b7.jar"
-        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/classes.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="686344a780033e4ba22b926cd225f8d4941247e6"/>
-    <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/androidasync-2.0.1-65bd09959eb8a484a705cb9bc801e1fa2cea868d.jar"
-        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.async/androidasync/2.0.1/dcabdd12da68872cc56c0890fe28416b0aab9668/androidasync-2.0.1.jar"
-        jumboMode="false"
-        revision="21.0.2"
-        sha1="dcabdd12da68872cc56c0890fe28416b0aab9668"/>
-    <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-48a5e866ac9300bac2af6ef8fae3fec79b475b11.jar"
         jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.github.nirhart/parallaxscroll/1.0/classes.jar"
         jumboMode="false"
-        revision="21.0.2"
-        sha1="2574796fab3c6145ca6170821badd305f5e03669"/>
+        revision="21.1.1"
+        sha1="2574796fab3c6145ca6170821badd305f5e03669">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-48a5e866ac9300bac2af6ef8fae3fec79b475b11.jar" />
+    </item>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-ac5c6aaae9346b22dad7e9af35f5e557f3a80188.jar"
-        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/it.sephiroth.android.library.fork.slideexpandable/slideexpandable/1.0.3.1/classes.jar"
+        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.2/classes.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="e16df45e956819fe13ceb0e15345a3643c897902"/>
+        revision="21.1.1"
+        sha1="7ae2d38807a43b2f2185ff4089a92c790b579e54">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-f8168f1d0f65fea128b193267f4c7853d9303006.jar" />
+    </item>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/ion-2.0.1-6f4ffc952a1d26ce41c82dec1c8dee96e52e887e.jar"
-        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.ion/ion/2.0.1/1bfd0a773b3e6f55299bf495c817141eb1facb8/ion-2.0.1.jar"
+        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.async/androidasync/2.0.1/dcabdd12da68872cc56c0890fe28416b0aab9668/androidasync-2.0.1.jar"
         jumboMode="false"
-        revision="21.0.2"
-        sha1="01bfd0a773b3e6f55299bf495c817141eb1facb8"/>
+        revision="21.1.1"
+        sha1="dcabdd12da68872cc56c0890fe28416b0aab9668">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/androidasync-2.0.1-65bd09959eb8a484a705cb9bc801e1fa2cea868d.jar" />
+    </item>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.0-79d5050ba5d97154f28149943b51430bea5d0deb.jar"
-        jar="/home/ubuntu/sdk_android/extras/android/m2repository/com/android/support/support-annotations/21.0.0/support-annotations-21.0.0.jar"
+        jar="/home/ubuntu/sdk_android/extras/android/m2repository/com/android/support/support-annotations/21.0.2/support-annotations-21.0.2.jar"
         jumboMode="false"
-        revision="21.0.2"
-        sha1="1a578b9607b36266c63d43a4fa0ab5664dbe911e"/>
+        revision="21.1.1"
+        sha1="99373741f99a0556ee293c41e8faa1ca3ae8a4e6">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.2-c490510abf1c2fc294b76be547933e487c86aeed.jar" />
+    </item>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.0-9d7a1b14d36f0d0a1bc82d7f0fd2f66d519d962a.jar"
-        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.0/libs/internal_impl-21.0.0.jar"
+        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.android.support/support-v4/21.0.2/libs/internal_impl-21.0.2.jar"
         jumboMode="false"
-        revision="21.0.2"
-        sha1="1609e6d42d0480b0f4188e2c29f75388fa12a8f0"/>
+        revision="21.1.1"
+        sha1="962e8b12569c56dbdcf8367eb4eac8bb129cd18f">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.2-ad9aef1b682cbc6ad1700c79d4572069a2c47640.jar" />
+    </item>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/picasso-2.3.1-cffde4bbf241096ed46576c3f84edaca79c32618.jar"
+        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.3/5fc52c41ef0239d1093a1eb7c3697036183677ce/gson-2.3.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="5fc52c41ef0239d1093a1eb7c3697036183677ce">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/gson-2.3-ca086433d033ffc526ce5d9f83ac8042dea4e3e6.jar" />
+    </item>
+    <item
         jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.1/7ed01353649330c692473b85d5c64db4218338db/picasso-2.3.1.jar"
         jumboMode="false"
-        revision="20.0.0"
-        sha1="7ed01353649330c692473b85d5c64db4218338db"/>
+        revision="21.1.1"
+        sha1="7ed01353649330c692473b85d5c64db4218338db">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/picasso-2.3.1-cffde4bbf241096ed46576c3f84edaca79c32618.jar" />
+    </item>
     <item
-        dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-ecc93f86f7dbf9c2a6e64d133dc56bf87b2f5f5a.jar"
-        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/21.0.0/classes.jar"
+        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/it.sephiroth.android.library.fork.slideexpandable/slideexpandable/1.0.3.1/classes.jar"
         jumboMode="false"
-        revision="21.0.2"
-        sha1="95fd37732ec852e99f07eeb516a3650172f1d136"/>
+        revision="21.1.1"
+        sha1="e16df45e956819fe13ceb0e15345a3643c897902">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-ac5c6aaae9346b22dad7e9af35f5e557f3a80188.jar" />
+    </item>
+    <item
+        jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.koushikdutta.ion/ion/2.0.1/1bfd0a773b3e6f55299bf495c817141eb1facb8/ion-2.0.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="01bfd0a773b3e6f55299bf495c817141eb1facb8">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/ion-2.0.1-6f4ffc952a1d26ce41c82dec1c8dee96e52e887e.jar" />
+    </item>
 
-</pre-dex-items>
+</items>

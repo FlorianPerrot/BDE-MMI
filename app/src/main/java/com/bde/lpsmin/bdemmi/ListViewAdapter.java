@@ -51,17 +51,17 @@ public class ListViewAdapter extends BaseAdapter {
     public View getView(int r, View convertView, ViewGroup parent) {
         Actu item = this.getItem(r);
         ViewHolder holder;
-        if(convertView == null){
-            holder = new ViewHolder();
-            convertView = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
-            holder.title = (TextView) convertView.findViewById(R.id.item_title);
-            holder.date = (TextView) convertView.findViewById(R.id.item_date);
-            holder.lieu = (TextView) convertView.findViewById(R.id.item_lieu);
-            holder.description = (TextView) convertView.findViewById(R.id.item_description);
-            holder.image = (ImageView) convertView.findViewById(R.id.item_image);
-            convertView.setTag(holder);
-        }else
-            holder = (ViewHolder) convertView.getTag();
+//        if(convertView == null){
+        holder = new ViewHolder();
+        convertView = LayoutInflater.from(context).inflate(R.layout.item, parent, false);
+        holder.title = (TextView) convertView.findViewById(R.id.item_title);
+        holder.date = (TextView) convertView.findViewById(R.id.item_date);
+        holder.lieu = (TextView) convertView.findViewById(R.id.item_lieu);
+        holder.description = (TextView) convertView.findViewById(R.id.item_description);
+        holder.image = (ImageView) convertView.findViewById(R.id.item_image);
+        convertView.setTag(holder);
+//        }else
+//            holder = (ViewHolder) convertView.getTag();
 
         holder.title.setText(item.getTitle());
         if(item instanceof Event){
