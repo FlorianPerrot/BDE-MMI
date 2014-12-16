@@ -27,7 +27,7 @@ public class NotificationsReceiver extends BroadcastReceiver {
         if (action.equals(Utils.ACTION_NOTIFICATION_AM) || action.equals(Utils.ACTION_NOTIFICATION_PM)) {
             final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
-            Log.v("date", Utils.rest_get_news+date);
+//            Log.v("date", Utils.rest_get_news+date);
 //            showNotification(context, R.string.notif_actu_title, ""+date, NOTIFICATION_ID_ACTU);
             if(date != 0L) {
                 Ion.with(context)

@@ -30,7 +30,7 @@
             android:background="@color/defaultColorDarken">
 
             <TextView
-                android:id="@+id/read_actu"
+                android:id="@+id/go_to_actu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/navigation_drawer_actu"
@@ -42,10 +42,22 @@
                 android:textColor="@color/navigation_drawer_text"
                 />
             <TextView
-                android:id="@+id/read_event"
+                android:id="@+id/go_to_event"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/navigation_drawer_event"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:clickable="true"
+                android:padding="10dp"
+                android:background="@drawable/navigation_drawer_item"
+                android:textColor="@color/navigation_drawer_text"
+                />
+            <TextView
+                android:id="@+id/go_to_gallery"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/navigation_drawer_gallery"
                 android:gravity="center"
                 android:textSize="24sp"
                 android:clickable="true"

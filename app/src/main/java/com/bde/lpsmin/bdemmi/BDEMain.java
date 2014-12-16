@@ -2,6 +2,7 @@ package com.bde.lpsmin.bdemmi;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
@@ -34,8 +35,9 @@ public class BDEMain extends ActionBarActivity
     private ViewPager mViewPager;
     private static final int PAGE_ACTU = 0;// attention a changer les add de pages si la valeur change
     private static final int PAGE_EVENT = 1;
+    private static final int PAGE_GALLERY = 2;
     private int currentPage = PAGE_ACTU;
-    private ArrayList<ActuFragment> pages;
+    private ArrayList<Fragment> pages;
     private static long back_pressed;
 
     @Override
@@ -61,9 +63,10 @@ public class BDEMain extends ActionBarActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        pages = new ArrayList<ActuFragment>();
+        pages = new ArrayList<>();
         pages.add(ActuFragment.newInstance());
         pages.add(EventFragment.newInstance());
+        pages.add(GalleryFragment.newInstance());
         ViewPagerAdapter mViewPagerAdapter = new ViewPagerAdapter(this, getSupportFragmentManager(), pages);
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mViewPagerAdapter);
@@ -82,7 +85,7 @@ public class BDEMain extends ActionBarActivity
                 @Override
                 public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                     if (!firstTime) {
-                        pages.get(PAGE_EVENT).loadItems(i);
+                        ((ActuFragment)pages.get(PAGE_EVENT)).loadItems(i);
                     }
                     firstTime = false;
                 }

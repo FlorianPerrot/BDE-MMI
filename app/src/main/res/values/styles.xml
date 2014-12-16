@@ -13,6 +13,7 @@
         <item name="actionBarTabTextStyle">@style/MyActionBarTabText</item>
         <item name="actionMenuTextColor">@color/actionbar_text</item>
         <item name="colorPrimary">@color/actionbar</item>
+        <item name="colorPrimaryDark">@color/actionbar_dark</item>
 
     </style>
 

@@ -117,18 +117,25 @@ public class NavigationDrawerFragment extends Fragment {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setHomeButtonEnabled(true);
 
-        TextView actu = (TextView) getActivity().findViewById(R.id.read_actu);
+        TextView actu = (TextView) getActivity().findViewById(R.id.go_to_actu);
         actu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectItem(0);
             }
         });
-        TextView event = (TextView) getActivity().findViewById(R.id.read_event);
+        TextView event = (TextView) getActivity().findViewById(R.id.go_to_event);
         event.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 selectItem(1);
+            }
+        });
+        TextView gallery = (TextView) getActivity().findViewById(R.id.go_to_gallery);
+        gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                selectItem(2);
             }
         });
 

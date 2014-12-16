@@ -37,11 +37,6 @@ public class EventFragment extends ActuFragment {
         }
 
         @Override
-        public Event create(String title, String description, String imgUri, String place, String date){
-            return new Event("Event "+title, description, imgUri, place, date);
-        }
-
-        @Override
         protected Boolean doInBackground(Void... voids) {
             if(act.get() != null) {
                 String url;

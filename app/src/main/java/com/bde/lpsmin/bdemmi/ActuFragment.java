@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,9 +27,8 @@ import java.util.ArrayList;
  */
 public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
 
-    private ActionSlideExpandableListView listView;
     protected SwipeRefreshLayout swipeLayout;
-    protected ListViewAdapter adapter;
+    protected ExpandableListViewAdapter adapter;
     protected ArrayList<Actu> items;
     protected int currentEvent = 0; //0 pour event futur, 1 pour les anciens.
 
@@ -43,7 +41,7 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.listview_layout, container, false);
+        View rootView = inflater.inflate(R.layout.expandablelistview_layout, container, false);
 
         swipeLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipe_container);
         swipeLayout.setOnRefreshListener(this);
@@ -51,14 +49,14 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
 
         items = new ArrayList<Actu>();
 
-        listView = (ActionSlideExpandableListView) rootView.findViewById(R.id.list_actu);
+        ActionSlideExpandableListView listView = (ActionSlideExpandableListView) rootView.findViewById(R.id.list_actu);
 
         // disable verticalFadingEdge on 2.3
         if( Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB ) {
             listView.setVerticalFadingEdgeEnabled(false);
         }
 
-        adapter = new ListViewAdapter(getActivity().getApplicationContext(), items);
+        adapter = new ExpandableListViewAdapter(getActivity().getApplicationContext(), items);
         listView.setAdapter(
                 new SlideExpandableListAdapter(
                         adapter,
@@ -113,10 +111,6 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
                 context = act.get().getApplicationContext();
                 swipeLayout.setRefreshing(true);
             }
-        }
-
-        public Actu create(String title, String description, String imgUri, String place, String date){
-            return new Actu("Actu "+title, description, imgUri, date);
         }
 
         @Override

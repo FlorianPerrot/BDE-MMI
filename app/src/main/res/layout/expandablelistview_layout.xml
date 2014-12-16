@@ -7,13 +7,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ListView
+    <com.tjerkw.slideexpandable.library.ActionSlideExpandableListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@android:color/transparent"
         android:cacheColorHint="@android:color/transparent"
         android:background="@android:color/transparent"
         android:choiceMode="singleChoice"
-        android:id="@+id/list_view"
+        android:id="@+id/list_actu"
         />
-</android.support.v4.widget.SwipeRefreshLayout>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+
+

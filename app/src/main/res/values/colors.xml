@@ -8,6 +8,7 @@
     <color name="grey">#ff5d1a19</color>
     <color name="actionbar_text">#ffffffff</color>
     <color name="actionbar">@color/defaultColor</color>
+    <color name="actionbar_dark">@color/defaultColorDarken</color>
     <color name="navigation_drawer">#ffd7d7d7</color>
     <color name="navigation_drawer_separator">#ffffffff</color>
     <color name="navigation_drawer_item_pressed">@color/defaultColor</color>
@@ -19,6 +20,7 @@
     <color name="tab_item_text">@color/defaultColor</color>
     <color name="item_layout_background">@color/defaultColor</color>
     <color name="item_background">#63000000</color>
+    <color name="item_background_2">#c8000000</color>
     <color name="item_text_color">#ffffffff</color>
     <color name="item_title_color">@color/item_text_color</color>
     <color name="item_date_color">@color/item_text_color</color>

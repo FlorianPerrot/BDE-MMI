@@ -15,6 +15,7 @@ public class Utils {
     public static final String rest_get_actu = "http://bde-mmi.alwaysdata.net/json/actu/all";
     public static final String rest_get_event = "http://bde-mmi.alwaysdata.net/json/event/prochainement";
     public static final String rest_get_event_histo = "http://bde-mmi.alwaysdata.net/json/event/historique";
+    public static final String rest_get_gallery = "http://bde-mmi.alwaysdata.net/json/gallerie/all";
     public static final int UPDATE_AM = 10; //10h
     public static final int UPDATE_PM = 16; //16h
     public static String rest_get_news = "http://bde-mmi.alwaysdata.net/json/news/";
@@ -52,6 +53,10 @@ public class Utils {
     public static final String JSON_TITLE = "titre";
     public static final String JSON_CONTENT = "contenu";
     public static final String JSON_IMAGE = "image";
+    public static final String JSON_GALLERY_NAME = "nom";
+    public static final String JSON_IMAGE_TITLE = "titre";
+    public static final String JSON_IMAGE_URL = "url";
+    public static final String JSON_IMAGES = "images";
     public static final String JSON_PLACE = "lieu";
     public static final String JSON_DATE = "date";
     public static final String JSON_NB_ACTU = "actu";

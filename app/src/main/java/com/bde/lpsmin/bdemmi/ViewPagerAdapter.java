@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     private final Context mContext;
-    private ArrayList<ActuFragment> pages;
-    public ViewPagerAdapter(Context context, FragmentManager fm, ArrayList<ActuFragment> pages) {
+    private ArrayList<Fragment> pages;
+    public ViewPagerAdapter(Context context, FragmentManager fm, ArrayList<Fragment> pages) {
         super(fm);
         this.pages = pages;
         this.mContext = context;
@@ -41,6 +41,9 @@ public class ViewPagerAdapter extends FragmentStatePagerAdapter {
                 break;
             case 1:
                 returnValue = mContext.getResources().getString(R.string.navigation_drawer_event);
+                break;
+            case 2:
+                returnValue = mContext.getResources().getString(R.string.navigation_drawer_gallery);
                 break;
         }
         return returnValue;

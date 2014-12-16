@@ -22,12 +22,12 @@ import java.util.Locale;
 /**
  * Created by lheido on 26/09/14.
  */
-public class ListViewAdapter extends BaseAdapter {
+public class ExpandableListViewAdapter extends BaseAdapter {
 
     private ArrayList<Actu> items;
     private Context context;
 
-    public ListViewAdapter(Context context, ArrayList<Actu> items) {
+    public ExpandableListViewAdapter(Context context, ArrayList<Actu> items) {
         this.items = items;
         this.context = context;
     }
