@@ -3,11 +3,13 @@ package com.bde.lpsmin.bdemmi;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -39,6 +41,7 @@ public class BDEMain extends ActionBarActivity
     private int currentPage = PAGE_ACTU;
     private ArrayList<Fragment> pages;
     private static long back_pressed;
+    private ViewPagerAdapter mViewPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,10 +69,11 @@ public class BDEMain extends ActionBarActivity
         pages = new ArrayList<>();
         pages.add(ActuFragment.newInstance());
         pages.add(EventFragment.newInstance());
-        pages.add(GalleryFragment.newInstance());
-        ViewPagerAdapter mViewPagerAdapter = new ViewPagerAdapter(this, getSupportFragmentManager(), pages);
+        pages.add(new GalleryRootFragment());
+        mViewPagerAdapter = new ViewPagerAdapter(this, getSupportFragmentManager(), pages);
         mViewPager = (ViewPager) findViewById(R.id.container);
         mViewPager.setAdapter(mViewPagerAdapter);
+        mViewPager.setOffscreenPageLimit(3);
 
         // custom spinner action view
         final View view = getLayoutInflater().inflate(R.layout.spinner_event_action_view, null);
@@ -173,8 +177,13 @@ public class BDEMain extends ActionBarActivity
 
     @Override
     public void onBackPressed(){
-        if (back_pressed + 2000 > System.currentTimeMillis()) super.onBackPressed();
-        else Toast.makeText(getBaseContext(), R.string.double_back_toast, Toast.LENGTH_SHORT).show();
-        back_pressed = System.currentTimeMillis();
+        if(currentPage == PAGE_GALLERY && getSupportFragmentManager().getBackStackEntryCount() == 1){
+            super.onBackPressed();
+        }else {
+            if (back_pressed + 2000 > System.currentTimeMillis()) super.onBackPressed();
+            else
+                Toast.makeText(getBaseContext(), R.string.double_back_toast, Toast.LENGTH_SHORT).show();
+            back_pressed = System.currentTimeMillis();
+        }
     }
 }

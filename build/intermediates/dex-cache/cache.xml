@@ -51,6 +51,20 @@
         <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/gson-2.3-ca086433d033ffc526ce5d9f83ac8042dea4e3e6.jar" />
     </item>
     <item
+        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.loopeer.android.thirdparty/swipe-back-layout/1.0/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="de3afc819bfe7b4e1ed55e8200f75c89e3b4fbd0">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-912fed584050f2463b942d9d70b3f3ccd9bece5b.jar" />
+    </item>
+    <item
+        jar="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/exploded-aar/com.github.chrisbanes.photoview/library/1.2.3/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="81aa0e8e77d948204aa6754019c6f3c04dd922e3">
+        <dex dex="/home/ubuntu/projetsAndroid/BDE-MMI/app/build/intermediates/pre-dexed/debug/classes-79d8c5b5388c480474bea03a7cdf192e45c2af44.jar" />
+    </item>
+    <item
         jar="/home/ubuntu/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.3.1/7ed01353649330c692473b85d5c64db4218338db/picasso-2.3.1.jar"
         jumboMode="false"
         revision="21.1.1"

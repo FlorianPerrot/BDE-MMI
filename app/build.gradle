@@ -26,4 +26,6 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.3.1'
     compile 'com.koushikdutta.ion:ion:2.0.1'
     compile 'com.github.nirhart:parallaxscroll:1.0'
+    compile 'com.loopeer.android.thirdparty:swipe-back-layout:1.0'
+    compile 'com.github.chrisbanes.photoview:library:1.2.3'
 }
