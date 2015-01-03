@@ -6,8 +6,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBarActivity;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
@@ -47,13 +46,7 @@ public class DetailActivity extends ActionBarActivity implements SwipeBackActivi
         image = (ImageView) findViewById(R.id.image);
         mAttacher = new PhotoViewAttacher(image);
         ViewCompat.setTransitionName(image, EXTRA_IMAGE);
-        load(url);
-    }
-
-    private void load(String url) {
-        Picasso.with(this)
-                .load(url)
-                .into(image, new Callback() {
+        Picasso.with(this).load(url).into(image, new Callback() {
             @Override
             public void onSuccess() {
                 mAttacher.update();
@@ -61,7 +54,7 @@ public class DetailActivity extends ActionBarActivity implements SwipeBackActivi
 
             @Override
             public void onError() {
-
+                Log.e("load image failed", "Picasso called onError :/");
             }
         });
     }

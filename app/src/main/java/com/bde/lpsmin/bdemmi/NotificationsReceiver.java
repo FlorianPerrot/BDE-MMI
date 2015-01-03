@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
-import android.util.Log;
 
 import com.google.gson.JsonArray;
 import com.koushikdutta.async.future.FutureCallback;
@@ -27,15 +26,12 @@ public class NotificationsReceiver extends BroadcastReceiver {
         if (action.equals(Utils.ACTION_NOTIFICATION_AM) || action.equals(Utils.ACTION_NOTIFICATION_PM)) {
             final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
             long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
-//            Log.v("date", Utils.rest_get_news+date);
-//            showNotification(context, R.string.notif_actu_title, ""+date, NOTIFICATION_ID_ACTU);
             if(date != 0L) {
                 Ion.with(context)
                     .load(Utils.rest_get_news + date)
                     .asJsonArray()
                     .setCallback(new FutureCallback<JsonArray>() {
                         public void onCompleted(Exception e, JsonArray result) {
-//                            showNotification(context, R.string.notif_event_title, "test "+e, NOTIFICATION_ID_EVENT);
                             if(e != null) {
                                 e.printStackTrace();
                             }

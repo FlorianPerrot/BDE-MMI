@@ -3,19 +3,15 @@ package com.bde.lpsmin.bdemmi;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
 
-import java.security.spec.ECField;
 import java.util.ArrayList;
 import java.util.Locale;
 
@@ -60,14 +56,11 @@ public class ExpandableListViewAdapter extends BaseAdapter {
         holder.description = (TextView) convertView.findViewById(R.id.item_description);
         holder.image = (ImageView) convertView.findViewById(R.id.item_image);
         convertView.setTag(holder);
-//        }else
-//            holder = (ViewHolder) convertView.getTag();
 
         holder.title.setText(item.getTitle());
         if(item instanceof Event){
             holder.lieu.setBackgroundResource(R.drawable.place_background_selector);
             final String lieu = ((Event) item).getLieu();
-//            final String lieu = "Parc Paul Mistral Grenoble";
             holder.lieu.setText(lieu);
             if(lieu != null && !lieu.equals("")) {
                 holder.lieu.setOnClickListener(new View.OnClickListener() {

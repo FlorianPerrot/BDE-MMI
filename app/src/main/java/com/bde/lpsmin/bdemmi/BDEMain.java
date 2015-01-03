@@ -3,15 +3,12 @@ package com.bde.lpsmin.bdemmi;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.support.v4.widget.DrawerLayout;
 import android.widget.AdapterView;
@@ -54,9 +51,6 @@ public class BDEMain extends ActionBarActivity
             startNotificationAlarm();
         }
 
-//        long date = preferences.getLong(Utils.PREFERENCES_DATE_KEY, 0L);
-//        Log.v("date", Utils.rest_get_news+date);
-
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getSupportFragmentManager().findFragmentById(R.id.navigation_drawer);
         mTitle = getTitle();
@@ -78,7 +72,7 @@ public class BDEMain extends ActionBarActivity
         // custom spinner action view
         final View view = getLayoutInflater().inflate(R.layout.spinner_event_action_view, null);
         if(view != null){
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getApplicationContext(),
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(this.getApplicationContext(),
                     R.layout.event_spinner, getResources().getStringArray(R.array.event_spinner));
             adapter.setDropDownViewResource(R.layout.event_spinner_item);
             Spinner spinner = (Spinner) view.findViewById(R.id.spinner);
@@ -152,18 +146,6 @@ public class BDEMain extends ActionBarActivity
             return true;
         }
         return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

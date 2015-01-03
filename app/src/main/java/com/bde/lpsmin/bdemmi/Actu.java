@@ -2,17 +2,7 @@ package com.bde.lpsmin.bdemmi;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-
-import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
-
-import com.google.gson.JsonArray;
-import com.koushikdutta.async.future.Future;
-import com.koushikdutta.async.future.FutureCallback;
-import com.koushikdutta.ion.Ion;
 
 /**
  * Created by lheido on 25/09/14.
