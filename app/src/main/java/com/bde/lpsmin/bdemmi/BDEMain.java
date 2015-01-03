@@ -162,8 +162,10 @@ public class BDEMain extends ActionBarActivity
         if(currentPage == PAGE_GALLERY && getSupportFragmentManager().getBackStackEntryCount() == 1){
             super.onBackPressed();
         }else {
-            if (back_pressed + 2000 > System.currentTimeMillis()) super.onBackPressed();
-            else
+            if (back_pressed + 2000 > System.currentTimeMillis()) {
+                getSupportFragmentManager().popBackStack();
+                super.onBackPressed();
+            } else
                 Toast.makeText(getBaseContext(), R.string.double_back_toast, Toast.LENGTH_SHORT).show();
             back_pressed = System.currentTimeMillis();
         }
