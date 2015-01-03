@@ -1,12 +1,9 @@
 package com.bde.lpsmin.bdemmi;
 
-import android.content.Context;
 import android.content.res.Configuration;
-import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,7 +17,6 @@ import com.koushikdutta.ion.Ion;
 import com.tjerkw.slideexpandable.library.ActionSlideExpandableListView;
 import com.tjerkw.slideexpandable.library.SlideExpandableListAdapter;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 
 /**
@@ -74,8 +70,37 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
         currentEvent = i;
         items.clear();
         adapter.notifyDataSetChanged();
-        GetActuTask task = new GetActuTask(getActivity(), currentEvent);
-        task.execTask();
+        swipeLayout.setRefreshing(true);
+        Ion.with(getActivity().getApplicationContext())
+            .load(Utils.rest_get_actu)
+            .asJsonArray()
+            .setCallback(new FutureCallback<JsonArray>(){
+                public void onCompleted(Exception e, JsonArray result) {
+                    if (result != null && items != null) {
+                        for (int i = 0; i < result.size(); i++) {
+                            items.add(new Actu(
+                                result.get(i).getAsJsonObject().get(Utils.JSON_TITLE).getAsString(),
+                                result.get(i).getAsJsonObject().get(Utils.JSON_CONTENT).getAsString(),
+                                result.get(i).getAsJsonObject().get(Utils.JSON_IMAGE).getAsString(),
+                                result.get(i).getAsJsonObject().get(Utils.JSON_DATE).getAsString()
+                            ));
+                        }
+                        if (adapter != null){
+                            adapter.notifyDataSetChanged();
+                        }
+                    } else {
+                        Toast.makeText(
+                                getActivity().getApplicationContext(),
+                                "Une erreur est survenue :)",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                    if (swipeLayout != null) {
+                        swipeLayout.setRefreshing(false);
+                    }
+
+                }
+            });
     }
 
     @Override
@@ -89,91 +114,6 @@ public class ActuFragment extends Fragment implements SwipeRefreshLayout.OnRefre
     @Override
     public void onRefresh() {
         loadItems(currentEvent);
-    }
-
-    protected class GetActuTask extends AsyncTask<Void, Actu, Boolean>{
-
-        protected WeakReference<FragmentActivity> act = null;
-        protected Context context = null;
-        protected int historique;
-
-        public GetActuTask(FragmentActivity activity, int historique) {
-            link(activity);
-            this.historique = historique;
-        }
-
-        public void link (FragmentActivity pActivity) {
-            act = new WeakReference<FragmentActivity>(pActivity);
-        }
-
-        @Override
-        protected void onPreExecute () {
-            if(act.get() != null){
-                context = act.get().getApplicationContext();
-                swipeLayout.setRefreshing(true);
-            }
-        }
-
-        @Override
-        protected Boolean doInBackground(Void... voids) {
-            if(act.get() != null) {
-                Ion.with(context)
-                .load(Utils.rest_get_actu)
-                .asJsonArray()
-                .setCallback(new FutureCallback<JsonArray>(){
-                    public void onCompleted(Exception e, JsonArray result) {
-                        try {
-                            if (result != null) {
-                                for (int i = 0; i < result.size(); i++) {
-                                    publishProgress(new Actu(
-                                            result.get(i).getAsJsonObject().get(Utils.JSON_TITLE).getAsString(),
-                                            result.get(i).getAsJsonObject().get(Utils.JSON_CONTENT).getAsString(),
-                                            result.get(i).getAsJsonObject().get(Utils.JSON_IMAGE).getAsString(),
-                                            result.get(i).getAsJsonObject().get(Utils.JSON_DATE).getAsString()
-                                    ));
-                                }
-                            } else {
-                                Toast.makeText(context, "Une erreur est survenue :)", Toast.LENGTH_SHORT).show();
-                                e.printStackTrace();
-                            }
-                        }catch (Exception ex){ex.printStackTrace();}
-                        if(act.get() != null) {
-                            swipeLayout.setRefreshing(false);
-                        }
-
-                    }
-                });
-                return true;
-            }
-            return false;
-        }
-
-        @Override
-        public void onProgressUpdate(Actu... prog){
-            if(act.get() != null){
-                items.add(prog[0]);
-                adapter.notifyDataSetChanged();
-            }
-        }
-
-        @Override
-        protected void onPostExecute (Boolean result) {
-            if (act.get() != null) {
-                if(!result)
-                    Toast.makeText(context, "Oups petit problème", Toast.LENGTH_LONG).show();
-            }
-        }
-
-        /**
-         * Plusieurs asynctask peuvent être exécutés en parallèle sur les versions 3+ d'Android.
-         */
-        public void execTask(){
-            if( Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB ) {
-                executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-            } else {
-                execute();
-            }
-        }
     }
 
 }

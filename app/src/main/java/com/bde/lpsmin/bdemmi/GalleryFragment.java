@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 
@@ -44,9 +45,19 @@ public abstract class GalleryFragment extends Fragment {
 
         adapter = new GalleryViewAdapter(getActivity().getApplicationContext(), items);
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                lauchDetail(view, i);
+            }
+        });
         setUp();
 
         return rootView;
+    }
+
+    public void lauchDetail(View view, int position){
+        DetailActivity.launch(((BDEMain) getActivity()), view.findViewById(R.id.item_image), items.get(position));
     }
 
     public abstract void setUp();

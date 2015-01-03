@@ -109,6 +109,7 @@ public class ListGallerieFragment extends Fragment implements SwipeRefreshLayout
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.root_frame, GalleryFragment.newInstance(items.get(position).getImages()));
         transaction.addToBackStack(null);
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.commit();
     }
 

@@ -29,11 +29,11 @@ public class Utils {
      * get fb_id with image or other way.
      * use to launch fb app or open browser with fb page url.
      */
-    public final static String fb_id = "140369639484142";
+    public final static String fb_id = "100008277570703";
     /**
      * use to open browser with site web url.
      */
-    public final static String site_web = "http://www.google.com";
+    public final static String site_web = "http://bde-mmi.alwaysdata.net";
 
     /**
      * instagram profile.
