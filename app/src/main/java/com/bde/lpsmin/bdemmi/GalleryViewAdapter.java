@@ -47,14 +47,17 @@ public class GalleryViewAdapter extends BaseAdapter{
         holder.title = (TextView) convertView.findViewById(R.id.item_title);
         holder.image = (ImageView) convertView.findViewById(R.id.item_image);
         convertView.setTag(holder);
-
-        holder.title.setText(item.getTitle());
-
-            Picasso.with(context)
-                    .load(item.getUrl())
-                    .centerCrop()
-                    .fit()
-                    .into(holder.image);
+        String title = item.getTitle();
+        if (title.isEmpty()) {
+            holder.title.setVisibility(View.INVISIBLE);
+        } else {
+            holder.title.setText(title);
+        }
+        Picasso.with(context)
+                .load(item.getUrl())
+                .centerCrop()
+                .fit()
+                .into(holder.image);
         return convertView;
     }
 
