@@ -21,7 +21,7 @@
     <string name="notif_actu_ticker">%d nouvelles actualités !</string>
     <string name="notif_event_ticker">%d nouveaux évènements !</string>
     <string name="navigation_startup_checkbox">Ouvrir le menu au démarrage</string>
-    <string name="navigation_drawer_gallery">Gallerie</string>
+    <string name="navigation_drawer_gallery">Galerie</string>
 
     <string-array name="event_spinner">
         <item>Prochainement</item>

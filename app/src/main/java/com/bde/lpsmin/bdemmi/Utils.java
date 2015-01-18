@@ -20,7 +20,7 @@ public class Utils {
     public static final String rest_get_actu = site_web + "/json/actu/all";
     public static final String rest_get_event = site_web + "/json/event/prochainement";
     public static final String rest_get_event_histo = site_web + "/json/event/historique";
-    public static final String rest_get_gallery = site_web + "/json/gallerie/all";
+    public static final String rest_get_gallery = site_web + "/json/galerie/all";
     public static final String rest_get_contact_info = site_web + "/json/contact/all";
     public static final int UPDATE_AM = 10; //10h
     public static final int UPDATE_PM = 16; //16h
