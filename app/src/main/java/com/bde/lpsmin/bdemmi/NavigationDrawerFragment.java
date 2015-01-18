@@ -23,6 +23,11 @@ import android.view.ViewGroup;
 import android.widget.CheckedTextView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.gson.JsonObject;
+import com.koushikdutta.async.future.FutureCallback;
+import com.koushikdutta.ion.Ion;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.
@@ -41,6 +46,8 @@ public class NavigationDrawerFragment extends Fragment {
      * expands it. This shared preference tracks this.
      */
     private static final String PREF_USER_LEARNED_DRAWER = "navigation_drawer_learned";
+    private static String facebookId;
+    private static String instagramProfile;
 
     /**
      * A pointer to the current callbacks instance (the Activity).
@@ -61,6 +68,7 @@ public class NavigationDrawerFragment extends Fragment {
     private CheckedTextView notifEventCheckBox;
     private SharedPreferences preferences;
     private CheckedTextView navigationStartupCheckBox;
+    private String bdeMail;
 
     public NavigationDrawerFragment() {
 
@@ -186,6 +194,25 @@ public class NavigationDrawerFragment extends Fragment {
             }
         });
 
+        Ion.with(getActivity().getApplicationContext())
+                .load(Utils.rest_get_contact_info)
+                .asJsonObject()
+                .setCallback(new FutureCallback<JsonObject>(){
+                    public void onCompleted(Exception e, JsonObject result) {
+                        if (result != null) {
+                            bdeMail = result.get(Utils.JSON_EMAIL).getAsString();
+                            facebookId = result.get(Utils.JSON_ID_FACEBOOK).getAsString();
+                            instagramProfile = result.get(Utils.JSON_PROFILE_INSTAGRAM).getAsString();
+                        }  else {
+                            Toast.makeText(
+                                    getActivity().getApplicationContext(),
+                                    "Une erreur est survenue :)",
+                                    Toast.LENGTH_SHORT)
+                                    .show();
+                        }
+                    }
+                });
+
         ImageButton menu_facebook = (ImageButton) getActivity().findViewById(R.id.menu_facebook);
         menu_facebook.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -203,7 +230,7 @@ public class NavigationDrawerFragment extends Fragment {
                 try {
                     final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
                     emailIntent.setType("plain/text");
-                    emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{Utils.mail});
+                    emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{bdeMail});
                     startActivity(Intent.createChooser(emailIntent, getString(R.string.contact_bde_title)));
                 }catch (Exception e){}
             }
@@ -286,18 +313,18 @@ public class NavigationDrawerFragment extends Fragment {
     public static Intent getOpenFacebookIntent(Context context) {
         try {
             context.getPackageManager().getPackageInfo("com.facebook.katana", 0);
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/"+Utils.fb_id));
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("fb://profile/"+facebookId));
         } catch (Exception e) {
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/"+Utils.fb_id));
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/"+facebookId));
         }
     }
 
     public static Intent getOpenInstagramIntent(Context context) {
         try {
             context.getPackageManager().getPackageInfo("com.instagram.android", 0);
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/"+Utils.instagram_profile));
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("http://instagram.com/_u/"+instagramProfile));
         } catch (Exception e) {
-            return new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.instagram.com/"+Utils.instagram_profile));
+            return new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.instagram.com/"+instagramProfile));
         }
     }
 

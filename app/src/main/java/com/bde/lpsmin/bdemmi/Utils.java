@@ -12,33 +12,23 @@ import java.util.Calendar;
  */
 public class Utils {
 
-    public static final String rest_get_actu = "http://bde-mmi.alwaysdata.net/json/actu/all";
-    public static final String rest_get_event = "http://bde-mmi.alwaysdata.net/json/event/prochainement";
-    public static final String rest_get_event_histo = "http://bde-mmi.alwaysdata.net/json/event/historique";
-    public static final String rest_get_gallery = "http://bde-mmi.alwaysdata.net/json/gallerie/all";
-    public static final int UPDATE_AM = 10; //10h
-    public static final int UPDATE_PM = 16; //16h
-    public static String rest_get_news = "http://bde-mmi.alwaysdata.net/json/news/";
-    public static final String PREFERENCES_DATE_KEY = "date_key";
-    public static final String PREFERENCES_ACTU_BOOL_KEY = "notif_actu_checked";
-    public static final String PREFERENCES_EVENT_BOOL_KEY = "notif_event_checked";
-    public static final String PREFERENCES_NAVIGATION_STARTUP = "navigation_startup";
-
-    public final static String mail = "bdemmi.grenoble@gmail.com";
-    /**
-     * get fb_id with image or other way.
-     * use to launch fb app or open browser with fb page url.
-     */
-    public final static String fb_id = "100008277570703";
     /**
      * use to open browser with site web url.
      */
     public final static String site_web = "http://bde-mmi.alwaysdata.net";
 
-    /**
-     * instagram profile.
-     */
-    public static final String instagram_profile = "icijapon";
+    public static final String rest_get_actu = site_web + "/json/actu/all";
+    public static final String rest_get_event = site_web + "/json/event/prochainement";
+    public static final String rest_get_event_histo = site_web + "/json/event/historique";
+    public static final String rest_get_gallery = site_web + "/json/gallerie/all";
+    public static final String rest_get_contact_info = site_web + "/json/contact/all";
+    public static final int UPDATE_AM = 10; //10h
+    public static final int UPDATE_PM = 16; //16h
+    public static String rest_get_news = site_web + "/json/news/";
+    public static final String PREFERENCES_DATE_KEY = "date_key";
+    public static final String PREFERENCES_ACTU_BOOL_KEY = "notif_actu_checked";
+    public static final String PREFERENCES_EVENT_BOOL_KEY = "notif_event_checked";
+    public static final String PREFERENCES_NAVIGATION_STARTUP = "navigation_startup";
 
     /**
      * use to format date with right database date string
@@ -61,6 +51,9 @@ public class Utils {
     public static final String JSON_DATE = "date";
     public static final String JSON_NB_ACTU = "actu";
     public static final String JSON_NB_EVENT = "event";
+    public static final String JSON_EMAIL = "email";
+    public static final String JSON_ID_FACEBOOK = "id_facebook";
+    public static final String JSON_PROFILE_INSTAGRAM = "profile_instagram";
 
     public static final String ACTION_NOTIFICATION_AM = "com.bde.lpsmin.bdemmi.action_notification_am";
     public static final String ACTION_NOTIFICATION_PM = "com.bde.lpsmin.bdemmi.action_notification_pm";
